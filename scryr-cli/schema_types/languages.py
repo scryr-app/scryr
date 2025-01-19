@@ -38,3 +38,4 @@ class ProgrammingLanguage(str, Enum):
     LISP = "Lisp"
     PROLOG = "Prolog"
     SCHEME = "Scheme"
+    SQL = "SQL"

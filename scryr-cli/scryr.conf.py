@@ -1,25 +1,15 @@
-from pydantic import BaseModel
-from schema_types import (
-    Emoji,
-    ProgrammingLanguage,
-    HttpUrl,
-    SoftwareFramework,
-    SoftwareLicense,
-    SemanticVersion,
+from schema_types import Component, ProgrammingLanguage, SoftwareFramework, Connection
+from devtools import debug
+
+hiDb = Component(
+    name="HiDB",
+    icon="🗄️",
+    description="A high-performance, open-source time series database optimized for fast ingest and complex queries.",
+    version="1.0.0",
+    languages=[ProgrammingLanguage.SQL],
+    frameworks=[SoftwareFramework.FLASK],
+    source_code_url="http://test.com",
 )
-
-
-class Component(BaseModel):
-    name: str
-    icon: Emoji
-    description: str
-    version: SemanticVersion
-    docs_url: HttpUrl | None = None
-    source_code_url: HttpUrl
-    monitoring_urls: list[HttpUrl] | None = None
-    languages: list[ProgrammingLanguage]
-    frameworks: list[SoftwareFramework]
-    license: SoftwareLicense | None = None
 
 
 def main():
@@ -33,8 +23,16 @@ def main():
         source_code_url="https://newsatck.com",
         languages=[ProgrammingLanguage.PYTHON, ProgrammingLanguage.JAVASCRIPT],
         frameworks=[SoftwareFramework.DJANGO, SoftwareFramework.FLASK],
+        connections=[
+            Connection(
+                component=hiDb,
+                api_url="https://api.example.com",
+                api_key="your_api_key",
+                api_secret="your_secret",
+            )
+        ],
     )
-    print(test)
+    debug(test)
 
 
 if __name__ == "__main__":
