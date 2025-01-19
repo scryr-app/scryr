@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "name": "Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Main.py",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "scryr.conf.py",
+      "console": "integratedTerminal"
+    }
+  ]
+}
