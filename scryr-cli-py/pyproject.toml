@@ -10,4 +10,5 @@ dependencies = [
     "pydantic-extra-types>=2.10.2",
     "ruff>=0.9.2",
     "semver>=3.0.3",
+    "svg-py>=1.5.0",
 ]

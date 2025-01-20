@@ -1,6 +1,6 @@
 from schema_types import Component, ProgrammingLanguage, SoftwareFramework, Connection
 from devtools import debug
-
+import svg
 from enum import Enum
 
 hiDb = Component(
@@ -8,7 +8,7 @@ hiDb = Component(
     icon="🗄️",
     description="A high-performance, open-source time series database optimized for fast ingest and complex queries.",
     version="1.0.0",
-    languages=[ProgrammingLanguage.SQL],
+    languages=[ProgrammingLanguage.SQL, ProgrammingLanguage.PYTHON],
     frameworks=[SoftwareFramework.FLASK],
     source_code_url="http://test.com",
 )
@@ -48,6 +48,57 @@ def output_dot_env(component: Component):
     return dot_env_file
 
 
+def output_svg(component: Component) -> svg.SVG:
+    canvas = svg.SVG(
+        width=1000,
+        height=600,
+        elements=[
+            svg.Ellipse(
+                ry=42,
+                rx=104,
+                cy=205,
+                cx=502,
+                stroke="red",
+                fill="white",
+                stroke_width=5,
+            ),
+            svg.Text(
+                x=450,
+                y=220,
+                font_family="Noto Sans JP",
+                font_size=24,
+                fill="black",
+                text=component.connections[0].component.name,
+            ),
+            svg.Line(
+                x1=109,
+                y1=109,
+                x2=502,
+                y2=205,
+                stroke="black",
+                stroke_width=2,
+            ),
+            svg.Rect(
+                height=84,
+                width=208,
+                y=109,
+                x=109,
+                stroke="black",
+                fill="blue",
+            ),
+            svg.Text(
+                x=150,
+                y=150,
+                font_family="Noto Sans JP",
+                font_size=24,
+                fill="black",
+                text=component.name,
+            ),
+        ],
+    )
+    return canvas
+
+
 def main():
     test = Component(
         name="Test",
@@ -74,6 +125,9 @@ def main():
         file.write(test_dot_env)
     with open("hi-db.env", "w") as file:
         file.write(hi_db_dot_env)
+    to_svg = output_svg(test)
+    with open("test.svg", "w") as file:
+        file.write(to_svg.as_str())
 
 
 if __name__ == "__main__":
