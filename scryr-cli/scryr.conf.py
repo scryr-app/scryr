@@ -1,6 +1,8 @@
 from schema_types import Component, ProgrammingLanguage, SoftwareFramework, Connection
 from devtools import debug
 
+from enum import Enum
+
 hiDb = Component(
     name="HiDB",
     icon="🗄️",
@@ -12,8 +14,41 @@ hiDb = Component(
 )
 
 
+def output_dot_env(component: Component):
+    dot_env_file = ""
+    fields = component.model_fields
+    for key, definition in fields.items():
+        value = component.__getattribute__(key)
+        if isinstance(value, list):
+            if isinstance(value[0], Enum):
+                k = []
+                for val in value:
+                    k.append(val.value)
+                ret = ",".join(k)
+                dot_env_file += str(f'{key}="{ret}"\n')
+            if isinstance(value[0], Connection):
+                for val in value:
+                    dot_env_file += str(
+                        f'{val.component.name}.api_url="{val.api_url}"\n'
+                    )
+                    dot_env_file += str(
+                        f'{val.component.name}.api_key="{val.api_key}"\n'
+                    )
+                    dot_env_file += str(
+                        f'{val.component.name}.api_secret="{val.api_secret}"\n'
+                    )
+        elif isinstance(value, dict):
+            ret = ",".join(value.keys())
+            dot_env_file += str(f'{key}="{ret}"\n')
+        elif isinstance(value, Enum):
+            ret = ",".join([f"{v}" for v in value])
+            dot_env_file += str(f'{key}="{ret}"\n')
+        else:
+            dot_env_file += str(f'{key}="{value}"\n')
+    return dot_env_file
+
+
 def main():
-    print("Hello from scryr-cli!")
     test = Component(
         name="Test",
         icon="🌞",
@@ -32,7 +67,13 @@ def main():
             )
         ],
     )
-    debug(test)
+
+    test_dot_env = output_dot_env(test)
+    hi_db_dot_env = output_dot_env(hiDb)
+    with open("test.env", "w") as file:
+        file.write(test_dot_env)
+    with open("hi-db.env", "w") as file:
+        file.write(hi_db_dot_env)
 
 
 if __name__ == "__main__":
