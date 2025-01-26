@@ -1,0 +1,37 @@
+import "pkl:semver"
+
+class Component {
+    name: String
+    icon: String
+    docs_url: String
+    framework: frameworks
+
+}
+
+typealias frameworks = "Django" | "Flask" | "Spring" | "ASP.NET" | "Laravel" | "Ruby on Rails" | "Express" | "Koa" | "Phoenix" | 
+                       "Angular" | "React" | "Vue.js" | "Ember.js" | "Backbone.js" | "Meteor" | "Svelte" | "Next.js" | "Nuxt.js" | 
+                       "Gatsby" | "Blitz.js" | "NestJS" | "FeathersJS" | "AdonisJS" | "Hapi" | "Sails.js" | "LoopBack" | "Total.js" | 
+                       "Fastify" | "Moleculer" | "Socket.io" | "Electron" | "Ionic" | "Cordova" | "Capacitor" | "Quasar" | "NativeScript" | 
+                       "Expo" | "React Native" | "Flutter" | "Xamarin" | "SwiftUI" | "Jetpack Compose" | "Kotlin Multiplatform" | 
+                       "Unity" | "Unreal Engine" | "Godot" | "Cocos2d" | "Phaser" | "Three.js" | "Babylon.js" | "PlayCanvas" | 
+                       "A-Frame" | "WebXR" | "WebGL" | "OpenGL" | "Vulkan" | "DirectX" | "Pygame" | "LibGDX" | "MonoGame" | 
+                       "CryEngine" | "Amazon Lumberyard" | "GameMaker Studio" | "Construct" | "RPG Maker" | "Stencyl" | 
+                       "Buildbox" | "Defold" | "Corona SDK" | "AppGameKit" | "Gideros" | "Haxe" | "OpenFL" | "Starling" | 
+                       "Away3D" | "Flixel" | "Citrus Engine" | "Panda3D" | "Torque3D" | "jMonkeyEngine" | "Godot" | "Ren'Py"
+
+typealias URL = String
+
+func isValidURL(url: String): Bool = {
+    let pattern = "^(http|https)://"
+    let regex = try! NSRegularExpression(pattern: pattern, options: [])
+    let range = NSRange(location: 0, length: url.utf16.count)
+    return regex.firstMatch(in: url, options: [], range: range) != nil
+}
+
+
+test: Component = new {
+    name = "test"
+    icon = "🌞"
+    docs_url = "https://example.com/docs/test"
+    framework = "Gideros"
+}

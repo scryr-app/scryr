@@ -3,6 +3,7 @@ extern crate url;
 use std::str::FromStr;
 use url::Url;
 
+pub mod basic;
 mod programming_languages;
 mod semantic_version;
 mod software_framework;
@@ -123,7 +124,10 @@ impl ComponentBuilder {
     }
 }
 
+use serde::{Deserialize, Serialize};
 fn main() {
+    basic::main();
+
     let hiDb = ComponentBuilder::new()
         .name("HiDB")
         .icon("hiedb.png")
