@@ -1,4 +1,5 @@
 extern crate url;
+use std::fs;
 
 use std::str::FromStr;
 use url::Url;
@@ -26,6 +27,33 @@ struct Component {
     programming_languages: Vec<ProgrammingLanguage>,
     frameworks: Vec<SoftwareFramework>,
     connections: Vec<Component>,
+}
+
+fn generate_svg_flowchart(component: &Component) -> String {
+    let mut svg_content = String::new();
+    svg_content.push_str(r#"<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">"#);
+
+    // Add the main component block
+    svg_content.push_str(&format!(
+        r#"<rect x="150" y="10" width="100" height="50" fill="lightblue" stroke="black" />
+        <text x="200" y="35" font-family="Verdana" font-size="15" fill="black" text-anchor="middle">{}</text>"#,
+        component.name
+    ));
+
+    // Add connections
+    let mut y_offset = 70;
+    for connection in &component.connections {
+        svg_content.push_str(&format!(
+            r#"<line x1="200" y1="60" x2="200" y2="{}" stroke="black" />
+            <rect x="150" y="{}" width="100" height="50" fill="lightgreen" stroke="black" />
+            <text x="200" y="{}" font-family="Verdana" font-size="15" fill="black" text-anchor="middle">{}</text>"#,
+            y_offset, y_offset, y_offset + 25, connection.name
+        ));
+        y_offset += 70;
+    }
+
+    svg_content.push_str("</svg>");
+    svg_content
 }
 
 impl Default for Component {
@@ -133,7 +161,7 @@ fn main() {
         .unwrap()
         .build();
 
-    let testComp = ComponentBuilder::new()
+    let test_component = ComponentBuilder::new()
         .name("TestComponent")
         .icon("test_icon.png")
         .description("This is a test component")
@@ -151,5 +179,7 @@ fn main() {
         .connections(vec![hiDb])
         .build();
 
-    println!("{:?}", testComp);
+    let svg_content = generate_svg_flowchart(&test_component);
+    fs::write("flowchart.svg", svg_content).expect("Unable to write file");
+    println!("SVG flowchart generated and saved as flowchart.png");
 }
