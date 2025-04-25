@@ -27,7 +27,7 @@ check:
     deno check src/main.tsx
 
 # Run all checks (format, lint, type check)
-check-all:
+fix:
     just fmt
     just lint
     just check
