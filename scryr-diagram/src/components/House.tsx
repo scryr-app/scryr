@@ -1,7 +1,7 @@
-import { RoundedBox, Html } from "@react-three/drei";
-import { useState, useRef } from "react";
+import { Html, RoundedBox } from "@react-three/drei";
+import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Flex, Box as FlexBox } from "@react-three/flex";
+import { Box as FlexBox, Flex } from "@react-three/flex";
 
 export function House({
   position,

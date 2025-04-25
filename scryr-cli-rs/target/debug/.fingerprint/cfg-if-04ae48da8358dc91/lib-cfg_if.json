@@ -1,1 +1,20 @@
-{"rustc":2090763851500020365,"features":"[]","declared_features":"[\"compiler_builtins\", \"core\", \"rustc-dep-of-std\"]","target":14691992093392644261,"profile":8276155916380437441,"path":11477838257572441227,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/cfg-if-04ae48da8358dc91/dep-lib-cfg_if","checksum":false}}],"rustflags":[],"config":2069994364910194474,"compile_kind":0}
+{
+  "rustc": 2090763851500020365,
+  "features": "[]",
+  "declared_features": "[\"compiler_builtins\", \"core\", \"rustc-dep-of-std\"]",
+  "target": 14691992093392644261,
+  "profile": 8276155916380437441,
+  "path": 11477838257572441227,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/cfg-if-04ae48da8358dc91/dep-lib-cfg_if",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "config": 2069994364910194474,
+  "compile_kind": 0
+}

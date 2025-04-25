@@ -1,1 +1,20 @@
-{"rustc":2090763851500020365,"features":"[\"std\"]","declared_features":"[\"default\", \"num-traits\", \"ratio\", \"std\"]","target":1294944846033578901,"profile":8276155916380437441,"path":13832474338803472322,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/float-cmp-ee3dfb38f465cf21/dep-lib-float_cmp","checksum":false}}],"rustflags":[],"config":2069994364910194474,"compile_kind":0}
+{
+  "rustc": 2090763851500020365,
+  "features": "[\"std\"]",
+  "declared_features": "[\"default\", \"num-traits\", \"ratio\", \"std\"]",
+  "target": 1294944846033578901,
+  "profile": 8276155916380437441,
+  "path": 13832474338803472322,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/float-cmp-ee3dfb38f465cf21/dep-lib-float_cmp",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "config": 2069994364910194474,
+  "compile_kind": 0
+}

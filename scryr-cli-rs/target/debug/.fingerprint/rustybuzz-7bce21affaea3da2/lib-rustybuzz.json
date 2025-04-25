@@ -1,1 +1,36 @@
-{"rustc":2090763851500020365,"features":"[\"default\", \"std\"]","declared_features":"[\"default\", \"std\", \"wasm-shaper\"]","target":2301757082449177414,"profile":5347358027863023418,"path":2017126799291200753,"deps":[[385810070298638530,"log",false,6895575312135130038],[1575432264915491116,"ttf_parser",false,10129032240411623101],[3936857533472727645,"unicode_bidi_mirroring",false,12837253511250048654],[5264059439965767078,"bytemuck",false,13215195416829980854],[6763391135507841221,"bitflags",false,12262290352309514881],[6831611227313043439,"smallvec",false,14670885145494010773],[9573945332787610519,"unicode_properties",false,13983995171474489136],[10827596247733338849,"unicode_script",false,9825989226177149971],[12330130818452434622,"core_maths",false,9081580939020147655],[13062555502533614306,"unicode_ccc",false,7159126720758239720]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/rustybuzz-7bce21affaea3da2/dep-lib-rustybuzz","checksum":false}}],"rustflags":[],"config":2069994364910194474,"compile_kind":0}
+{
+  "rustc": 2090763851500020365,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"std\", \"wasm-shaper\"]",
+  "target": 2301757082449177414,
+  "profile": 5347358027863023418,
+  "path": 2017126799291200753,
+  "deps": [
+    [385810070298638530, "log", false, 6895575312135130038],
+    [1575432264915491116, "ttf_parser", false, 10129032240411623101],
+    [
+      3936857533472727645,
+      "unicode_bidi_mirroring",
+      false,
+      12837253511250048654
+    ],
+    [5264059439965767078, "bytemuck", false, 13215195416829980854],
+    [6763391135507841221, "bitflags", false, 12262290352309514881],
+    [6831611227313043439, "smallvec", false, 14670885145494010773],
+    [9573945332787610519, "unicode_properties", false, 13983995171474489136],
+    [10827596247733338849, "unicode_script", false, 9825989226177149971],
+    [12330130818452434622, "core_maths", false, 9081580939020147655],
+    [13062555502533614306, "unicode_ccc", false, 7159126720758239720]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/rustybuzz-7bce21affaea3da2/dep-lib-rustybuzz",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "config": 2069994364910194474,
+  "compile_kind": 0
+}

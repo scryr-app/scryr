@@ -2,9 +2,9 @@ import { House } from "./House";
 import { Connections } from "./Connections";
 import { Ground } from "./Ground";
 import {
-  React as DiReact,
   Android as DiAndroid,
   Apache as DiApache,
+  React as DiReact,
 } from "developer-icons";
 
 // Note: For most use cases, the best positioning/layout library for React Three Fiber is:

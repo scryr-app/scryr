@@ -16,7 +16,7 @@ export function CurvedConnection({
   const curve = new THREE.QuadraticBezierCurve3(
     new THREE.Vector3(...start),
     new THREE.Vector3(mid[0], mid[1], mid[2]),
-    new THREE.Vector3(...end)
+    new THREE.Vector3(...end),
   );
   const points = curve.getPoints(32);
 

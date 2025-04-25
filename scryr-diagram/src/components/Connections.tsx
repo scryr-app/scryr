@@ -21,7 +21,7 @@ export function Connections({
           end={houses[i + 1].pos}
           color={types[t].color}
           offset={types[t].offset}
-        />
+        />,
       );
     }
   }

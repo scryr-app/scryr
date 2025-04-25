@@ -1,1 +1,24 @@
-{"rustc":2090763851500020365,"features":"[\"default\", \"std\"]","declared_features":"[\"default\", \"libm\", \"no-std-float\", \"std\"]","target":15590299274629163093,"profile":8276155916380437441,"path":5099798745870606895,"deps":[[5264059439965767078,"bytemuck",false,14802293666813258973],[6060572338472977546,"strict_num",false,6070950900554037190],[9529943735784919782,"arrayref",false,16220078324729055340]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/tiny-skia-path-197999117eecb667/dep-lib-tiny_skia_path","checksum":false}}],"rustflags":[],"config":2069994364910194474,"compile_kind":0}
+{
+  "rustc": 2090763851500020365,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"libm\", \"no-std-float\", \"std\"]",
+  "target": 15590299274629163093,
+  "profile": 8276155916380437441,
+  "path": 5099798745870606895,
+  "deps": [
+    [5264059439965767078, "bytemuck", false, 14802293666813258973],
+    [6060572338472977546, "strict_num", false, 6070950900554037190],
+    [9529943735784919782, "arrayref", false, 16220078324729055340]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tiny-skia-path-197999117eecb667/dep-lib-tiny_skia_path",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "config": 2069994364910194474,
+  "compile_kind": 0
+}
