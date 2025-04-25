@@ -1,5 +1,5 @@
 default:
-    cd scryr-diagram/deno_scripts && just
+    cd scryr-diagram && just
 
 # Run the Vite development server using Deno
 vite-dev:
