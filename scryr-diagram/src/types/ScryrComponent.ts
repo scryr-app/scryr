@@ -1,0 +1,298 @@
+// Define enums for allowed options
+export enum Language {
+  Python = "Python",
+  TypeScript = "TypeScript",
+  Go = "Go",
+  Rust = "Rust",
+  Java = "Java",
+  CSharp = "C#",
+  CPlusPlus = "C++",
+  JavaScript = "JavaScript",
+  PHP = "PHP",
+  Ruby = "Ruby",
+  Swift = "Swift",
+  Kotlin = "Kotlin",
+  Dart = "Dart",
+  ObjectiveC = "Objective-C",
+  Scala = "Scala",
+  Clojure = "Clojure",
+  Erlang = "Erlang",
+  Haskell = "Haskell",
+  Lua = "Lua",
+  Perl = "Perl",
+  Assembly = "Assembly",
+  Bash = "Bash",
+  Fortran = "Fortran",
+  Groovy = "Groovy",
+  Julia = "Julia",
+  Lisp = "Lisp",
+  MATLAB = "MATLAB",
+  Pascal = "Pascal",
+  PowerShell = "PowerShell",
+  R = "R",
+  SQL = "SQL",
+  VisualBasic = "Visual Basic",
+  Ada = "Ada",
+  COBOL = "COBOL",
+  Delphi = "Delphi",
+  Elixir = "Elixir",
+  FSharp = "F#",
+  Forth = "Forth",
+  Prolog = "Prolog",
+  Scheme = "Scheme",
+  Smalltalk = "Smalltalk",
+  Tcl = "Tcl",
+  VHDL = "VHDL",
+  Verilog = "Verilog",
+  Apex = "Apex",
+  Ceylon = "Ceylon",
+  CoffeeScript = "CoffeeScript",
+  Crystal = "Crystal",
+  D = "D",
+  Elm = "Elm",
+  Gosu = "Gosu",
+  Haxe = "Haxe",
+  Idris = "Idris",
+  Io = "Io",
+  J = "J",
+  Nim = "Nim",
+  OCaml = "OCaml",
+  ObjectiveJ = "Objective-J",
+  PLI = "PL/I",
+  Q = "Q",
+  Racket = "Racket",
+  REBOL = "REBOL",
+  SAS = "SAS",
+  Scratch = "Scratch",
+  Self = "Self",
+  Simula = "Simula",
+  SPARK = "SPARK",
+  StandardML = "Standard ML",
+  SuperCollider = "SuperCollider",
+  SystemVerilog = "SystemVerilog",
+  Vala = "Vala",
+  XQuery = "XQuery",
+  Zig = "Zig"
+}
+
+export enum Framework {
+  Django = "Django",
+  Express = "Express",
+  React = "React",
+  NextJS = "NextJS",
+  RubyOnRails = "Ruby on Rails",
+  Laravel = "Laravel",
+  Spring = "Spring",
+  Flask = "Flask",
+  ASPNET = "ASP.NET",
+  Meteor = "Meteor",
+  SailsJS = "Sails.js",
+  Phoenix = "Phoenix",
+  FastAPI = "FastAPI",
+  Strapi = "Strapi",
+  PlayFramework = "Play Framework",
+  CakePHP = "CakePHP",
+  Symfony = "Symfony",
+  Koa = "Koa",
+  NuxtJS = "Nuxt.js",
+  Hapi = "Hapi",
+  Bottle = "Bottle",
+  Pyramid = "Pyramid",
+  Gatsby = "Gatsby",
+  BlitzJS = "Blitz.js",
+  Angular = "Angular",
+  VueJS = "Vue.js",
+  BackboneJS = "Backbone.js",
+  EmberJS = "Ember.js",
+  KnockoutJS = "Knockout.js",
+  Aurelia = "Aurelia",
+  Mithril = "Mithril",
+  AlpineJS = "Alpine.js",
+  Svelte = "Svelte",
+  Lit = "Lit",
+  TurboGears = "TurboGears",
+  Web2py = "Web2py",
+  ColdFusion = "ColdFusion",
+  Zope = "Zope",
+  CherryPy = "CherryPy",
+  Tornado = "Tornado",
+  Sanic = "Sanic",
+  Falcon = "Falcon",
+  Mason = "Mason",
+  Yesod = "Yesod",
+  Snap = "Snap",
+  Happstack = "Happstack",
+  IHP = "IHP",
+  Rocket = "Rocket",
+  Actix = "Actix",
+  Vapor = "Vapor",
+  Perfect = "Perfect",
+  Kitura = "Kitura",
+  Beego = "Beego",
+  Gin = "Gin",
+  Echo = "Echo",
+  Fiber = "Fiber",
+  Revel = "Revel",
+  Iris = "Iris",
+  Nancy = "Nancy",
+  ServiceStack = "ServiceStack",
+  Grails = "Grails",
+  JHipster = "JHipster",
+  Vaadin = "Vaadin",
+  Quarkus = "Quarkus",
+  Micronaut = "Micronaut",
+  Helidon = "Helidon",
+  Dropwizard = "Dropwizard",
+  Jooby = "Jooby",
+  Ratpack = "Ratpack",
+  Blade = "Blade",
+  JFinal = "JFinal",
+  Vertx = "Vert.x",
+  Ktor = "Ktor",
+  Tapestry = "Tapestry",
+  Wicket = "Wicket",
+  Lift = "Lift",
+  Scalatra = "Scalatra",
+  Play = "Play",
+  Finatra = "Finatra",
+  Finch = "Finch",
+  Unfiltered = "Unfiltered",
+  Bowler = "Bowler",
+  Spark = "Spark",
+  Javalin = "Javalin",
+  Ninja = "Ninja",
+  RingoJS = "RingoJS",
+  TotalJS = "Total.js",
+  AdonisJS = "AdonisJS",
+  FeathersJS = "FeathersJS",
+  LoopBack = "LoopBack",
+  NestJS = "NestJS",
+  HapiJS = "Hapi.js",
+  Sapper = "Sapper",
+  Remix = "Remix",
+  RedwoodJS = "RedwoodJS",
+  Eleventy = "Eleventy",
+  Hexo = "Hexo",
+  Hugo = "Hugo",
+  Jekyll = "Jekyll",
+  Middleman = "Middleman",
+  Pelican = "Pelican",
+  MkDocs = "MkDocs",
+  Docusaurus = "Docusaurus",
+  DocPad = "DocPad",
+  Assemble = "Assemble",
+  Metalsmith = "Metalsmith",
+  Wintersmith = "Wintersmith",
+  Brunch = "Brunch",
+  Gridsome = "Gridsome",
+  Nuxt = "Nuxt",
+  Quasar = "Quasar",
+  Expo = "Expo",
+  OnsenUI = "Onsen UI",
+  Framework7 = "Framework7",
+  NativeScript = "NativeScript",
+  Ionic = "Ionic",
+  Capacitor = "Capacitor",
+  Weex = "Weex",
+  TabrisJS = "Tabris.js",
+  ReactNative = "React Native",
+  Flutter = "Flutter",
+  Xamarin = "Xamarin",
+  Cordova = "Cordova",
+  PhoneGap = "PhoneGap",
+  Monaca = "Monaca",
+  SenchaTouch = "Sencha Touch",
+  Kony = "Kony",
+  Appcelerator = "Appcelerator",
+  Titanium = "Titanium",
+  CoronaSDK = "Corona SDK",
+  Unity = "Unity",
+  Godot = "Godot",
+  Cocos2d = "Cocos2d",
+  CocosCreator = "Cocos Creator",
+  Phaser = "Phaser",
+  ThreeJS = "Three.js",
+  BabylonJS = "Babylon.js",
+  PlayCanvas = "PlayCanvas",
+  AFrame = "A-Frame",
+  Blend4Web = "Blend4Web",
+  Ogre = "Ogre",
+  Irrlicht = "Irrlicht",
+  Panda3D = "Panda3D",
+  Torque3D = "Torque3D",
+  CryEngine = "CryEngine",
+  UnrealEngine = "Unreal Engine",
+  GameMaker = "GameMaker",
+  Construct = "Construct",
+  RPGMaker = "RPG Maker",
+  RenPy = "Ren'Py",
+  Twine = "Twine",
+  Ink = "Ink",
+  TyranoBuilder = "TyranoBuilder",
+  Stencyl = "Stencyl",
+  GDevelop = "GDevelop",
+  Defold = "Defold"
+}
+
+export enum Deployment {
+  Docker = "Docker",
+  Kubernetes = "Kubernetes",
+  ECS = "ECS",
+  Lambda = "Lambda"
+}
+
+// Define a class for ScryrComponent using the enums
+export class ScryrComponentClass {
+  name: string;
+  icon: string;
+  description: string;
+  version: string;
+  language: Language;
+  frameworks: Framework[];
+  deployment: Deployment;
+  sourceCodeUrl: string;
+  connections: string[];
+  links: string[];
+  docs: string[];
+
+  constructor({
+    name,
+    icon,
+    description,
+    version,
+    language,
+    frameworks,
+    deployment,
+    sourceCodeUrl,
+    connections,
+    links,
+    docs
+  }: {
+    name: string;
+    icon: string;
+    description: string;
+    version: string;
+    language: Language;
+    frameworks: Framework[];
+    deployment: Deployment;
+    sourceCodeUrl: string;
+    connections: string[];
+    links: string[];
+    docs: string[];
+  }) {
+    this.name = name;
+    this.icon = icon;
+    this.description = description;
+    this.version = version;
+    this.language = language;
+    this.frameworks = frameworks;
+    this.deployment = deployment;
+    this.sourceCodeUrl = sourceCodeUrl;
+    this.connections = connections;
+    this.links = links;
+    this.docs = docs;
+  }
+}
+
+
+
