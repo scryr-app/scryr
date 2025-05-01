@@ -72,7 +72,7 @@ export enum Language {
   SystemVerilog = "SystemVerilog",
   Vala = "Vala",
   XQuery = "XQuery",
-  Zig = "Zig"
+  Zig = "Zig",
 }
 
 export enum Framework {
@@ -231,14 +231,14 @@ export enum Framework {
   TyranoBuilder = "TyranoBuilder",
   Stencyl = "Stencyl",
   GDevelop = "GDevelop",
-  Defold = "Defold"
+  Defold = "Defold",
 }
 
 export enum Deployment {
   Docker = "Docker",
   Kubernetes = "Kubernetes",
   ECS = "ECS",
-  Lambda = "Lambda"
+  Lambda = "Lambda",
 }
 
 // Define a class for ScryrComponent using the enums
@@ -266,7 +266,7 @@ export class ScComponent {
     sourceCodeUrl,
     connections,
     links,
-    docs
+    docs,
   }: {
     name: string;
     icon: string;
@@ -293,6 +293,3 @@ export class ScComponent {
     this.docs = docs;
   }
 }
-
-
-
