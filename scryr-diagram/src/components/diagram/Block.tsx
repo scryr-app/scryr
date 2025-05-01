@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Box as FlexBox, Flex } from "@react-three/flex";
 
-export function House({
+export function Block({
   position,
   color = "#b5651d",
   icon,

@@ -10,6 +10,8 @@
     "npm:@types/react@^19.0.10": "19.1.1",
     "npm:@types/react@^19.1.2": "19.1.2",
     "npm:@vitejs/plugin-react@^4.4.1": "4.4.1_vite@6.3.2__picomatch@4.0.2_@babel+core@7.26.10",
+    "npm:d3-force-3d@^3.0.6": "3.0.6",
+    "npm:dagre@~0.8.5": "0.8.5",
     "npm:developer-icons@^5.3.4": "5.3.4_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:eslint-plugin-react-hooks@^5.1.0": "5.2.0_eslint@9.25.1",
     "npm:eslint-plugin-react-refresh@~0.4.20": "0.4.20_eslint@9.25.1",
@@ -933,6 +935,38 @@
     "csstype@3.1.3": {
       "integrity": "sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw=="
     },
+    "d3-binarytree@1.0.2": {
+      "integrity": "sha512-cElUNH+sHu95L04m92pG73t2MEJXKu+GeKUN1TJkFsu93E5W8E9Sc3kHEGJKgenGvj19m6upSn2EunvMgMD2Yw=="
+    },
+    "d3-dispatch@3.0.1": {
+      "integrity": "sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg=="
+    },
+    "d3-force-3d@3.0.6": {
+      "integrity": "sha512-4tsKHUPLOVkyfEffZo1v6sFHvGFwAIIjt/W8IThbp08DYAsXZck+2pSHEG5W1+gQgEvFLdZkYvmJAbRM2EzMnA==",
+      "dependencies": [
+        "d3-binarytree",
+        "d3-dispatch",
+        "d3-octree",
+        "d3-quadtree",
+        "d3-timer"
+      ]
+    },
+    "d3-octree@1.1.0": {
+      "integrity": "sha512-F8gPlqpP+HwRPMO/8uOu5wjH110+6q4cgJvgJT6vlpy3BEaDIKlTZrgHKZSp/i1InRpVfh4puY/kvL6MxK930A=="
+    },
+    "d3-quadtree@3.0.1": {
+      "integrity": "sha512-04xDrxQTDTCFwP5H6hRhsRcb9xxv2RzkcsygFzmkSIOJy3PeRJP7sNk3VRIbKXcog561P9oU0/rVH6vDROAgUw=="
+    },
+    "d3-timer@3.0.1": {
+      "integrity": "sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA=="
+    },
+    "dagre@0.8.5": {
+      "integrity": "sha512-/aTqmnRta7x7MCCpExk7HQL2O4owCT2h8NT//9I1OQ9vt29Pa0BzSAkR5lwFUcQ7491yVi/3CXU9jQ5o0Mn2Sw==",
+      "dependencies": [
+        "graphlib",
+        "lodash"
+      ]
+    },
     "debug@4.4.0": {
       "integrity": "sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==",
       "dependencies": [
@@ -1203,6 +1237,12 @@
     "graphemer@1.4.0": {
       "integrity": "sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag=="
     },
+    "graphlib@2.1.8": {
+      "integrity": "sha512-jcLLfkpoVGmH7/InMC/1hIvOPSUh38oJtGhvrOFGzioE1DZ+0YW16RgmOJhHiuWTvGiJQ9Z1Ik43JvkRPRvE+A==",
+      "dependencies": [
+        "lodash"
+      ]
+    },
     "has-flag@4.0.0": {
       "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ=="
     },
@@ -1353,6 +1393,9 @@
     },
     "lodash.merge@4.6.2": {
       "integrity": "sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ=="
+    },
+    "lodash@4.17.21": {
+      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
     },
     "loose-envify@1.4.0": {
       "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",
@@ -1864,6 +1907,8 @@
         "npm:@types/react-dom@^19.0.4",
         "npm:@types/react@^19.1.2",
         "npm:@vitejs/plugin-react@^4.4.1",
+        "npm:d3-force-3d@^3.0.6",
+        "npm:dagre@~0.8.5",
         "npm:developer-icons@^5.3.4",
         "npm:eslint-plugin-react-hooks@^5.1.0",
         "npm:eslint-plugin-react-refresh@~0.4.20",

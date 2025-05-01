@@ -1,10 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Town } from "./components/diagram/Town";
+import { Diagram } from "./components/diagram/Diagram";
 
-import { menetherenComponents } from "./data/menetherenComponents";
 function App() {
-  console.log("Loaded Scryr Components:", menetherenComponents);
   return (
     <div
       style={{
@@ -20,7 +18,7 @@ function App() {
       >
         <ambientLight intensity={0.7} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Town />
+        <Diagram />
         <OrbitControls
           enablePan={false}
           enableZoom={false}
