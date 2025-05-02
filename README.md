@@ -1,3 +1,3 @@
 # scryr
 
-open source repo
+The Open source focused on creating a graph of related components.
