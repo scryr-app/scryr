@@ -1,0 +1,42 @@
+
+default:
+	@just --list
+
+
+# Setup
+setup:
+	deno install -A --unstable npm:vite
+
+# Development
+vite-dev:
+	deno run -A --unstable npm:vite
+
+vite-build:
+	deno run -A --unstable npm:vite build
+
+vite-preview:
+	deno run -A --unstable npm:vite preview
+
+# Code Quality
+lint:
+	deno lint
+
+format:
+	deno fmt
+
+fix:
+	just format
+	just lint
+
+# Testing
+test:
+	deno test
+
+# Type checking
+check:
+	deno check src/main.tsx
+
+# Clean up
+clean:
+	rm -rf dist
+	rm -rf .deno
