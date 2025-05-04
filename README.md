@@ -1,3 +1,3 @@
-# scryr
+# 🔮 Scryr
 
-The Open source focused on creating a graph of related components.
+Actionable Architecture.
