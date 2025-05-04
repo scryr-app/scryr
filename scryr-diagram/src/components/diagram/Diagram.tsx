@@ -34,13 +34,12 @@ export function Diagram() {
 
   // Run the Dagre layout
   dagre.layout(g);
-  debugger;
 
   // Map the positions from the layout to houses
   const houses = menetherenComponents.map((component) => {
     const node = g.node(component.name);
     return {
-      pos: [node.x / 100, 0.5, node.y / 100], // Scale down positions for 3D space
+      pos: [node.x / 100, 0.5, node.y / 100] as [number, number, number], // Ensure pos is typed as [number, number, number]
       component,
     };
   });

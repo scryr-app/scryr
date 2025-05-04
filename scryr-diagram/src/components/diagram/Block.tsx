@@ -1,8 +1,8 @@
 import { Html, RoundedBox } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Box as FlexBox, Flex } from "@react-three/flex";
-import { useRef, useState } from "react";
 
+import { useRef, useState } from "react";
 export function Block({
   position,
   color = "#b5651d",
@@ -14,7 +14,7 @@ export function Block({
 }) {
   const [hovered, setHovered] = useState(false);
   const targetSplit = hovered ? [0.7, 0, -0.7] : [0.3, 0, -0.3];
-  const yRefs = [useRef<any>(), useRef<any>(), useRef<any>()];
+  const yRefs = [useRef<any>(null), useRef<any>(null), useRef<any>(null)];
   const yPositions = useRef([0.3, 0, -0.3]);
 
   useFrame(() => {
