@@ -1,4 +1,4 @@
-import { CurvedConnection } from "./CurvedConnection";
+import { CurvedConnection } from "./CurvedConnection.tsx";
 
 export function Connections({
   houses,
@@ -11,6 +11,7 @@ export function Connections({
     { color: "#FFDC00", offset: 0.09 }, // electrical
   ];
 
+  // deno-lint-ignore no-explicit-any
   const lines: any[] = [];
   for (let i = 0; i < houses.length - 1; i++) {
     for (let t = 0; t < types.length; t++) {

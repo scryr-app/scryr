@@ -4,10 +4,10 @@ import {
   Apache as DiApache,
   React as DiReact,
 } from "developer-icons";
-import { menetherenComponents } from "../../data/menetherenComponents";
-import { Block } from "./Block";
-import { Connections } from "./Connections";
-import { Ground } from "./Ground";
+import { menetherenComponents } from "../../data/menetherenComponents.ts";
+import { Block } from "./Block.tsx";
+import { Connections } from "./Connections.tsx";
+import { Ground } from "./Ground.tsx";
 
 // Note: For most use cases, the best positioning/layout library for React Three Fiber is:
 // @react-three/flex - Flexbox-style 3D layouts (https://github.com/pmndrs/react-three-flex)
@@ -21,22 +21,24 @@ export function Diagram() {
   g.setDefaultEdgeLabel(() => ({}));
 
   // Add nodes to the graph
-  menetherenComponents.forEach((component, index) => {
+  menetherenComponents.forEach((component: { name: string }) => {
     g.setNode(component.name, { width: 100, height: 50 });
   });
 
   // Add edges to the graph based on connections
-  menetherenComponents.forEach((component) => {
-    component.connections.forEach((connection) => {
-      g.setEdge(component.name, connection.name);
-    });
-  });
+  menetherenComponents.forEach(
+    (component: { connections: { name: string }[]; name: string }) => {
+      component.connections.forEach((connection: { name: string }) => {
+        g.setEdge(component.name, connection.name);
+      });
+    },
+  );
 
   // Run the Dagre layout
   dagre.layout(g);
 
   // Map the positions from the layout to houses
-  const houses = menetherenComponents.map((component) => {
+  const houses = menetherenComponents.map((component: { name: string }) => {
     const node = g.node(component.name);
     return {
       pos: [node.x / 100, 0.5, node.y / 100] as [number, number, number], // Ensure pos is typed as [number, number, number]
@@ -54,7 +56,7 @@ export function Diagram() {
     <>
       <Ground />
       <Connections houses={houses} />
-      {houses.map((h, i) => (
+      {houses.map((h: { pos: [number, number, number] }, i: number) => (
         <Block
           key={i}
           position={h.pos as [number, number, number]}

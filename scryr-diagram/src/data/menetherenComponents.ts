@@ -3,7 +3,7 @@ import {
   Framework,
   Language,
   ScComponent,
-} from "../types/ScryrComponent";
+} from "../types/ScryrComponent.ts";
 
 // Define the ScryrComponent instances based on menetheren.json
 const authService = new ScComponent({
