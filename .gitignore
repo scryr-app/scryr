@@ -1,0 +1,38 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+node_modules/
+dist/
+.vite/
+
+# Deno
+.deno/
+deno.lock
+
+# macOS
+.DS_Store
+
+# General
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project
+.idea/
+.vscode/
+*.iml
+*.env
+.env.*
+
+# Ignore build artifacts
+/build/
+/out/
