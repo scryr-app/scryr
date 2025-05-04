@@ -36,6 +36,7 @@ export function Diagram() {
 
   // Run the Dagre layout
   dagre.layout(g);
+  debugger;
 
   // Map the positions from the layout to houses
   const houses = menetherenComponents.map((component: { name: string }) => {
