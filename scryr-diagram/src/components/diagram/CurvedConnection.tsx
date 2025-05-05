@@ -12,10 +12,14 @@ export function CurvedConnection({
   color: string;
   offset?: number;
 }) {
-  const mid = [(start[0] + end[0]) / 2, 0.1 + offset, (start[2] + end[2]) / 2];
+  const mid = [
+    (start[0] + end[0]) / 2,
+    0, // Ensure the curve lies on the ground
+    (start[2] + end[2]) / 2,
+  ];
   const curve = new THREE.QuadraticBezierCurve3(
     new THREE.Vector3(...start),
-    new THREE.Vector3(mid[0], mid[1], mid[2]),
+    new THREE.Vector3(mid[0], 0.5 + offset, mid[2]), // Add vertical curvature in the middle
     new THREE.Vector3(...end),
   );
   const points = curve.getPoints(32);

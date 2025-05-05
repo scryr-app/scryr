@@ -12,14 +12,15 @@ export function Block({
   icon?: React.ReactNode;
 }) {
   const [hovered, setHovered] = useState(false);
-  const targetSplit = hovered ? [0.7, 0, -0.7] : [0.3, 0, -0.3];
+  const targetSplit = hovered ? [0.5, 0.25, 0] : [0.3, 0.15, 0]; // Further increased spacing
   // deno-lint-ignore no-explicit-any
   const yRefs = [useRef<any>(null), useRef<any>(null), useRef<any>(null)];
-  const yPositions = useRef([0.3, 0, -0.3]);
+  const yPositions = useRef([0.8, 0.4, 0]); // Adjusted initial positions for more spacing
 
   useFrame(() => {
     for (let i = 0; i < 3; i++) {
       yPositions.current[i] += (targetSplit[i] - yPositions.current[i]) * 0.1;
+      yPositions.current[i] = Math.max(yPositions.current[i], 0); // Ensure y >= 0
       if (yRefs[i].current) {
         yRefs[i].current.position.y = yPositions.current[i];
       }
@@ -42,7 +43,7 @@ export function Block({
         {/* Place icon on the floor, centered, slightly above to avoid z-fighting */}
         {icon && (
           <Html
-            position={[0, 0.151, 0]} // 0.15 is half the height of the floor, +0.001 offset
+            position={[0, 0, 0]} // Adjusted to lie directly on the ground
             transform
             occlude
             style={{

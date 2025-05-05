@@ -38,13 +38,19 @@ export function Diagram() {
   dagre.layout(g);
 
   // Map the positions from the layout to houses
-  const houses = menetherenComponents.map((component: { name: string }) => {
-    const node = g.node(component.name);
-    return {
-      pos: [node.x / 100, 0.5, node.y / 100] as [number, number, number], // Ensure pos is typed as [number, number, number]
-      component,
-    };
-  });
+  const houses = menetherenComponents.map(
+    (component: { name: string }, index: number) => {
+      const node = g.node(component.name);
+      return {
+        pos: [(node.x * index) / 50, 0.5, (node.y * index) / 50] as [
+          number,
+          number,
+          number,
+        ], // Ensure pos is typed as [number, number, number]
+        component,
+      };
+    },
+  );
 
   const iconMap: Record<number, React.ReactNode> = {
     1: <DiReact color="#61dafb" />,
