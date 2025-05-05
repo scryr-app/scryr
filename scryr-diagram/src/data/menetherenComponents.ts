@@ -48,8 +48,23 @@ const backEndApp = new ScComponent({
   docs: ["https://docs.example.com/backend"],
 });
 
+const dataOrchestratorApp = new ScComponent({
+  name: "Airflow",
+  icon: "🍃",
+  description: "Data Job runners",
+  version: "1.9.0",
+  language: Language.Python,
+  frameworks: [Framework.Angular],
+  deployment: Deployment.Kubernetes,
+  sourceCodeUrl: "https://github.com/example/airflowd",
+  connections: [backEndApp, frontEndApp],
+  links: ["https://api.example.com"],
+  docs: ["https://docs.example.com/backend"],
+});
+
 export const menetherenComponents: ScComponent[] = [
   frontEndApp,
   authService,
   backEndApp,
+  dataOrchestratorApp
 ];
