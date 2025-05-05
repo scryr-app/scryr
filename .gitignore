@@ -28,7 +28,6 @@ deno.lock
 *.sublime-workspace
 *.sublime-project
 .idea/
-.vscode/
 *.iml
 *.env
 .env.*
