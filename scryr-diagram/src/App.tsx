@@ -13,7 +13,7 @@ function App() {
       }}
     >
       <Canvas
-        camera={{ position: [8, 8, 8], fov: 50 }}
+        camera={{ position: [10, 10, 10], fov: 40 }}
         gl={{ preserveDrawingBuffer: true }}
         style={{ marginTop: "5rem" }}
       >
