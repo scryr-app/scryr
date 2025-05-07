@@ -8,7 +8,7 @@ export function Block({
   icon,
 }: {
   position: [number, number, number];
-  color?: string;
+  color: string;
   icon?: React.ReactNode;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -40,35 +40,6 @@ export function Block({
         smoothness={4}
       >
         <meshStandardMaterial color={color} />
-        {/* Place icon on the floor, centered, slightly above to avoid z-fighting */}
-        {icon && (
-          <Html
-            position={[0, 0, 0]} // Adjusted to lie directly on the ground
-            transform
-            occlude
-            style={{
-              width: "2.5em",
-              height: "2.5em",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "transparent",
-              pointerEvents: "none",
-            }}
-          >
-            <div
-              style={{
-                width: "2.5em",
-                height: "2.5em",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {icon}
-            </div>
-          </Html>
-        )}
       </RoundedBox>
       <RoundedBox
         ref={yRefs[1]}
@@ -76,7 +47,7 @@ export function Block({
         radius={0.08}
         smoothness={4}
       >
-        <meshStandardMaterial color="#fff2cc" />
+        <meshStandardMaterial color={color} />
       </RoundedBox>
       <RoundedBox
         ref={yRefs[0]}
@@ -84,7 +55,7 @@ export function Block({
         radius={0.08}
         smoothness={4}
       >
-        <meshStandardMaterial color="#b0c4de" />
+        <meshStandardMaterial color={color} />
       </RoundedBox>
     </group>
   );

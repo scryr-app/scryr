@@ -14,8 +14,8 @@ export function CurvedConnection({
 }) {
   const mid = [
     (start[0] + end[0]) / 2,
-    0, // Ensure the curve lies on the ground
     (start[2] + end[2]) / 2,
+    0, // Ensure the curve lies on the ground
   ];
   const curve = new THREE.QuadraticBezierCurve3(
     new THREE.Vector3(...start),

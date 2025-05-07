@@ -8,14 +8,14 @@ import { menetherenComponents } from "../../data/menetherenComponents.ts";
 import { Block } from "./Block.tsx";
 import { Connections } from "./Connections.tsx";
 import { Ground } from "./Ground.tsx";
+import { ScComponent } from "../../types/ScryrComponent.ts";
 
 // Note: For most use cases, the best positioning/layout library for React Three Fiber is:
 // @react-three/flex - Flexbox-style 3D layouts (https://github.com/pmndrs/react-three-flex)
 // For physics-based or collision-aware positioning, use @react-three/rapier.
 // For procedural/graph layouts, use d3-force-3d or poisson-disk-sampling.
 
-export function Diagram() {
-  // Create a new directed graph
+function layoutDiagramStructure(components: ScComponent[]): any {
   const g = new dagre.graphlib.Graph();
   g.setGraph({});
   g.setDefaultEdgeLabel(() => ({}));
@@ -34,15 +34,20 @@ export function Diagram() {
     },
   );
 
-  // Run the Dagre layout
   dagre.layout(g);
 
+  return g;
+}
+
+export function Diagram() {
   // Map the positions from the layout to houses
+  const g = layoutDiagramStructure(menetherenComponents);
+
   const houses = menetherenComponents.map(
     (component: { name: string }, index: number) => {
       const node = g.node(component.name);
       return {
-        pos: [(node.x * index) / 50, 0.5, (node.y * index) / 50] as [
+        pos: [(node.x * index) / 50, 0, (node.y * index) / 50] as [
           number,
           number,
           number,
