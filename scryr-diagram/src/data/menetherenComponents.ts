@@ -66,5 +66,4 @@ export const menetherenComponents: ScComponent[] = [
   frontEndApp,
   authService,
   backEndApp,
-  dataOrchestratorApp
 ];

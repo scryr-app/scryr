@@ -5,7 +5,7 @@ import {
   React as DiReact,
 } from "developer-icons";
 import { menetherenComponents } from "../../data/menetherenComponents.ts";
-import { Block } from "./Block.tsx";
+import { Block, SimpleBlock } from "./Block.tsx";
 import { Connections } from "./Connections.tsx";
 import { Ground } from "./Ground.tsx";
 import { ScComponent } from "../../types/ScryrComponent.ts";
@@ -68,11 +68,11 @@ export function Diagram() {
       <Ground />
       <Connections houses={houses} />
       {houses.map((h: { pos: [number, number, number] }, i: number) => (
-        <Block
+        <SimpleBlock
           key={i}
           position={h.pos as [number, number, number]}
           color={i % 3 === 0 ? "#b5651d" : "#e3c16f"}
-          icon={iconMap[i]}
+          name={"React"}
         />
       ))}
     </>

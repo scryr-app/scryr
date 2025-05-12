@@ -1,7 +1,35 @@
-import { Html, RoundedBox } from "@react-three/drei";
+import { Html, RoundedBox, Text } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 import { useRef, useState } from "react";
+
+export function SimpleBlock({
+  position,
+  color = "#b5651d",
+  name = "Block",
+}: {
+  position: [number, number, number];
+  color?: string;
+  name?: string;
+}) {
+  return (
+    <group position={position}>
+      <Text
+        position={[0, 0.7, 0]}
+        fontSize={0.2}
+        color="black"
+        anchorX="center"
+        anchorY="middle"
+      >
+        {name}
+      </Text>
+      <RoundedBox args={[1, 0.3, 1]} radius={0.08} smoothness={4}>
+        <meshStandardMaterial color={color} />
+      </RoundedBox>
+    </group>
+  );
+}
+
 export function Block({
   position,
   color = "#b5651d",

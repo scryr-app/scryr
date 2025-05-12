@@ -38,7 +38,7 @@ components: [
     description: "Handles user authentication"
     version: "1.2.0"
     language: "Python"
-    frameworks: ["Django"]
+    frameworks: ["Django", "React"]
     deployment: "ECS"
     source_code_url: "https://github.com/example/auth-service"
     connections: ["User DB", "Email API"]
