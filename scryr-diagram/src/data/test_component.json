@@ -1,0 +1,48 @@
+{
+    "components": [
+        {
+            "name": "Auth Service",
+            "icon": "🔒",
+            "description": "Handles user authentication",
+            "version": "1.2.0",
+            "language": "Python",
+            "frameworks": [
+                "Django",
+                "React"
+            ],
+            "deployment": "ECS",
+            "source_code_url": "https://github.com/example/auth-service",
+            "connections": [
+                "User DB",
+                "Email API"
+            ],
+            "links": [
+                "https://auth.example.com"
+            ],
+            "docs": [
+                "https://docs.example.com/auth"
+            ]
+        },
+        {
+            "name": "Frontend App",
+            "icon": "🌐",
+            "description": "The user-facing web frontend",
+            "version": "2.0.1",
+            "language": "Python",
+            "frameworks": [
+                "Express"
+            ],
+            "deployment": "Lambda",
+            "source_code_url": "https://github.com/example/frontend",
+            "connections": [
+                "Auth Service"
+            ],
+            "links": [
+                "https://www.example.com"
+            ],
+            "docs": [
+                "https://docs.example.com/frontend"
+            ]
+        }
+    ]
+}

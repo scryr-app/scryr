@@ -1,0 +1,3 @@
+transfer:
+    cue export scryr_component.cue > test_component.json 
+    mv test_component.json ../scryr-diagram/src/data/test_component.json
