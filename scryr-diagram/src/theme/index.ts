@@ -1,10 +1,21 @@
 export type ThemeAttributes = {
-    primary: string
-    secondary: string
-    accent: string
-    background: string
-    surface: string
-    muted: string
+    // Colors for blocks
+	alphaColor: string
+	betaColor: string
+	gammaColor: string
+	deltaColor: string
+	epsilonColor: string
+	zetaColor: string
+	etaColor: string
+	thetaColor: string
+	iotaColor: string
+	kappaColor: string
+
+    // Canvas basics
+    backgroundColor: string
+    surfaceColor: string
+    fontFace: string
+    fontColor: string
 }
 
 
@@ -16,94 +27,205 @@ export class DiagramTheme {
         this.attributes = attributes;
     }
 
-    get primary(): string {
-        return this.attributes.primary;
+    // Basic colors
+    get alphaColor(): string {
+        return this.attributes.alphaColor;
     }
 
-    get secondary(): string {
-        return this.attributes.secondary;
+    get betaColor(): string {
+        return this.attributes.betaColor;
     }
 
-    get accent(): string {
-        return this.attributes.accent;
+    get gammaColor(): string {
+        return this.attributes.gammaColor;
     }
 
+    get deltaColor(): string {
+        return this.attributes.deltaColor;
+    }
+
+    get epsilonColor(): string {
+        return this.attributes.epsilonColor;
+    }
+
+    get zetaColor(): string {
+        return this.attributes.zetaColor;
+    }
+
+    get etaColor(): string {
+        return this.attributes.etaColor;
+    }
+
+    get thetaColor(): string {
+        return this.attributes.thetaColor;
+    }
+
+    get iotaColor(): string {
+        return this.attributes.iotaColor;
+    }
+
+    get kappaColor(): string {
+        return this.attributes.kappaColor;
+    }
+
+    // Canvas basics
     get background(): string {
-        return this.attributes.background;
+        return this.attributes.backgroundColor;
     }
 
     get surface(): string {
-        return this.attributes.surface;
+        return this.attributes.surfaceColor;
     }
 
-    get muted(): string {
-        return this.attributes.muted;
+    get fontFace(): string {
+        return this.attributes.fontFace;
+    }
+
+    get fontColor(): string {
+        return this.attributes.fontColor;
     }
 
     toCSSVariables(): Record<string, string> {
         return {
-            '--primary': this.primary,
-            '--secondary': this.secondary,
-            '--accent': this.accent,
+            // Basic colors
+            '--alpha': this.alphaColor,
+            '--beta': this.betaColor,
+            '--gamma': this.gammaColor,
+            '--delta': this.deltaColor,
+            '--epsilon': this.epsilonColor,
+            '--zeta': this.zetaColor,
+            '--eta': this.etaColor,
+            '--theta': this.thetaColor,
+            '--iota': this.iotaColor,
+            '--kappa': this.kappaColor,
+            
+            // Canvas basics
             '--background': this.background,
             '--surface': this.surface,
-            '--muted': this.muted,
+            '--font-face': this.fontFace,
+            '--font-color': this.fontColor
         };
     }
 }
 
 export const AutumnOfficeTheme: ThemeAttributes = {
-    primary: '#54402b',
-    secondary: '#fff980',
-    accent: '#b0956d',
-    background: '#918a7c',
-    surface: '#d3bb98',
-    muted: '#ffb152',
-  };
-  
-  export const SpringOfficeTheme: ThemeAttributes = {
-    primary: '#687f4d',
-    secondary: '#998d6b',
-    accent: '#6bfef0',
-    background: '#999999',
-    surface: '#90948b',
-    muted: '#b4ffb8',
-  };
-  
-  export const SummerOfficeTheme: ThemeAttributes = {
-    primary: '#996d2e',
-    secondary: '#997f2f',
-    accent: '#6effff',
-    background: '#99978a',
-    surface: '#998d6b',
-    muted: '#ffa1a1',
-  };
-  
-  export const WinterOfficeTheme:ThemeAttributes = {
-    primary: '#567995',
-    secondary: '#889197',
-    accent: '#7c8184',
-    background: '#8d8f90',
-    surface: '#697276',
-    muted: '#a8c9da',
-  };
-  
-  export const OceanIndustryTheme: ThemeAttributes = {
-    primary: '#0179d9',
-    secondary: '#02beff',
-    accent: '#6bffff',
-    background: '#869496',
-    surface: '#00868c',
-    muted: '#00f0ff',
-  };
-  
-  export const ForestFactoryTheme: ThemeAttributes = {
-    primary: '#40af46',
-    secondary: '#8eff94',
-    accent: '#c59a8a',
-    background: '#848e78',
-    surface: '#76c241',
-    muted: '#e1beb1',
-  };
+    // Colors for blocks
+    alphaColor: '#54402b',
+    betaColor: '#fff980',
+    gammaColor: '#b0956d',
+    deltaColor: '#c4a785',
+    epsilonColor: '#d8b89d',
+    zetaColor: '#ecc9b5',
+    etaColor: '#ffdacd',
+    thetaColor: '#ffe6dc',
+    iotaColor: '#fff2eb',
+    kappaColor: '#fff9f6',
 
-  export let currentDiagramTheme = new DiagramTheme(AutumnOfficeTheme)
+    // Canvas basics
+    backgroundColor: '#918a7c',
+    surfaceColor: '#d3bb98',
+    fontFace: 'Inter, system-ui, sans-serif',
+    fontColor: '#2c2c2c'
+};
+  
+export const SpringOfficeTheme: ThemeAttributes = {
+    // Colors for blocks
+    alphaColor: '#687f4d',
+    betaColor: '#998d6b',
+    gammaColor: '#8aa970',
+    deltaColor: '#9cb982',
+    epsilonColor: '#aec994',
+    zetaColor: '#c0d9a6',
+    etaColor: '#d2e9b8',
+    thetaColor: '#e4f9ca',
+    iotaColor: '#f6ffdc',
+    kappaColor: '#fafff0',
+
+    // Canvas basics
+    backgroundColor: '#999999',
+    surfaceColor: '#90948b',
+    fontFace: 'Inter, system-ui, sans-serif',
+    fontColor: '#2c2c2c'
+};
+  
+export const SummerOfficeTheme: ThemeAttributes = {
+    // Colors for blocks
+    alphaColor: '#996d2e',
+    betaColor: '#997f2f',
+    gammaColor: '#b18e47',
+    deltaColor: '#c99d5f',
+    epsilonColor: '#e1ac77',
+    zetaColor: '#f9bb8f',
+    etaColor: '#ffcaa7',
+    thetaColor: '#ffd9bf',
+    iotaColor: '#ffe8d7',
+    kappaColor: '#fff7ef',
+
+    // Canvas basics
+    backgroundColor: '#99978a',
+    surfaceColor: '#998d6b',
+    fontFace: 'Inter, system-ui, sans-serif',
+    fontColor: '#2c2c2c'
+};
+  
+export const WinterOfficeTheme: ThemeAttributes = {
+    // Colors for blocks
+    alphaColor: '#567995',
+    betaColor: '#889197',
+    gammaColor: '#7a9bab',
+    deltaColor: '#8cabbb',
+    epsilonColor: '#9ebbc9',
+    zetaColor: '#b0cbd7',
+    etaColor: '#c2dbe5',
+    thetaColor: '#d4ebf3',
+    iotaColor: '#e6fbff',
+    kappaColor: '#f8ffff',
+
+    // Canvas basics
+    backgroundColor: '#8d8f90',
+    surfaceColor: '#697276',
+    fontFace: 'Inter, system-ui, sans-serif',
+    fontColor: '#2c2c2c'
+};
+  
+export const OceanIndustryTheme: ThemeAttributes = {
+    // Colors for blocks
+    alphaColor: '#0179d9',
+    betaColor: '#02beff',
+    gammaColor: '#1ac6ff',
+    deltaColor: '#32ceff',
+    epsilonColor: '#4ad6ff',
+    zetaColor: '#62deff',
+    etaColor: '#7ae6ff',
+    thetaColor: '#92eeff',
+    iotaColor: '#aaf6ff',
+    kappaColor: '#c2feff',
+
+    // Canvas basics
+    backgroundColor: '#869496',
+    surfaceColor: '#00868c',
+    fontFace: 'Inter, system-ui, sans-serif',
+    fontColor: '#ffffff'
+};
+  
+export const ForestFactoryTheme: ThemeAttributes = {
+    // Colors for blocks
+    alphaColor: '#40af46',
+    betaColor: '#8eff94',
+    gammaColor: '#52bf58',
+    deltaColor: '#64cf6a',
+    epsilonColor: '#76df7c',
+    zetaColor: '#88ef8e',
+    etaColor: '#9affa0',
+    thetaColor: '#acffb2',
+    iotaColor: '#bfffc4',
+    kappaColor: '#d1ffd6',
+
+    // Canvas basics
+    backgroundColor: '#848e78',
+    surfaceColor: '#76c241',
+    fontFace: 'Inter, system-ui, sans-serif',
+    fontColor: '#2c2c2c'
+};
+
+  export let currentDiagramTheme = new DiagramTheme(OceanIndustryTheme)

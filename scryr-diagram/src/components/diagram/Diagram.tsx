@@ -8,7 +8,6 @@ import { menetherenComponents } from "../../data/menetherenComponents.ts";
 import { Block, SimpleBlock } from "./Block.tsx";
 import { Connections } from "./Connections.tsx";
 import { Ground } from "./Ground.tsx";
-import { ScComponent } from "../../types/ScryrComponent.ts";
 
 // Note: For most use cases, the best positioning/layout library for React Three Fiber is:
 // @react-three/flex - Flexbox-style 3D layouts (https://github.com/pmndrs/react-three-flex)
