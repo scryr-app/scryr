@@ -2,11 +2,11 @@ import {
   Deployment,
   Framework,
   Language,
-  ScComponent,
+  ScfComponent,
 } from "../scfile-loader/ScryrComponent.ts";
 
 // Define the ScryrComponent instances based on menetheren.json
-const authService = new ScComponent({
+const authService = new ScfComponent({
   name: "Auth Service",
   icon: "🔒",
   description: "Handles user authentication",
@@ -20,7 +20,7 @@ const authService = new ScComponent({
   docs: ["https://docs.example.com/auth"],
 });
 
-const frontEndApp = new ScComponent({
+const frontEndApp = new ScfComponent({
   name: "Frontend App",
   icon: "🌐",
   description: "The user-facing web frontend",
@@ -34,7 +34,7 @@ const frontEndApp = new ScComponent({
   docs: ["https://docs.example.com/frontend"],
 });
 
-const backEndApp = new ScComponent({
+const backEndApp = new ScfComponent({
   name: "Backend App",
   icon: "⚙️",
   description: "The backend service for data processing",
@@ -48,7 +48,7 @@ const backEndApp = new ScComponent({
   docs: ["https://docs.example.com/backend"],
 });
 
-const dataOrchestratorApp = new ScComponent({
+const dataOrchestratorApp = new ScfComponent({
   name: "Airflow",
   icon: "🍃",
   description: "Data Job runners",
@@ -62,7 +62,7 @@ const dataOrchestratorApp = new ScComponent({
   docs: ["https://docs.example.com/backend"],
 });
 
-export const menetherenComponents: ScComponent[] = [
+export const menetherenComponents: ScfComponent[] = [
   frontEndApp,
   authService,
   backEndApp,

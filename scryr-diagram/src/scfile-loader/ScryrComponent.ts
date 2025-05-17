@@ -242,7 +242,7 @@ export enum Deployment {
 }
 
 // Define a class for ScryrComponent using the enums
-export class ScComponent {
+export class ScfComponent {
   name: string;
   icon: string;
   description: string;
@@ -251,7 +251,7 @@ export class ScComponent {
   frameworks: Framework[];
   deployment: Deployment;
   sourceCodeUrl: string;
-  connections: ScComponent[];
+  connections: ScfComponent[];
   links: string[];
   docs: string[];
 
@@ -276,7 +276,7 @@ export class ScComponent {
     frameworks: Framework[];
     deployment: Deployment;
     sourceCodeUrl: string;
-    connections: ScComponent[];
+    connections: ScfComponent[];
     links: string[];
     docs: string[];
   }) {
