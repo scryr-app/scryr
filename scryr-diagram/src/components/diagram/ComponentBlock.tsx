@@ -5,17 +5,20 @@ import { useRef, useState } from "react";
 
 export function SimpleBlock({
   position,
-  color = "#b5651d",
-  name = "Block",
+  color,
+  name,
 }: {
   position: [number, number, number];
   color?: string;
   name?: string;
 }) {
+  const wd = 3;
+  const ht = 2;
+  const dp = 1;
   return (
     <group position={position}>
       <Text
-        position={[0, 0.7, 0]}
+        position={[.3, 0, .51]}
         fontSize={0.2}
         color="black"
         anchorX="center"
@@ -23,7 +26,7 @@ export function SimpleBlock({
       >
         {name}
       </Text>
-      <RoundedBox args={[1, 0.3, 1]} radius={0.08} smoothness={4}>
+      <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
         <meshStandardMaterial color={color} />
       </RoundedBox>
     </group>
@@ -32,7 +35,7 @@ export function SimpleBlock({
 
 export function Block({
   position,
-  color = "#b5651d",
+  color,
   icon,
 }: {
   position: [number, number, number];

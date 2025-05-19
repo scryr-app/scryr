@@ -1,17 +1,15 @@
-import { interleaveAttributes } from "three-stdlib";
-
 export type ThemeAttributes = {
     // Colors for blocks
-    alphaColor: string;
-    betaColor: string;
-    gammaColor: string;
-    deltaColor: string;
-    epsilonColor: string;
-    zetaColor: string;
-    etaColor: string;
-    thetaColor: string;
-    iotaColor: string;
-    kappaColor: string;
+    dawn: string; // violet
+    dusk: string; // indigo
+    tide: string; //  blue
+    grove: string; // green
+    pulse: string; // yellow
+    flare: string; // orange
+    ember: string; // red
+    mist: string; // pink
+    drift: string; // teal
+    slate: string; // tan
 
     // Canvas basics
     backgroundColor: string;
@@ -29,43 +27,43 @@ export class DiagramTheme {
 
     // Basic colors
     get alphaColor(): string {
-        return this.attributes.alphaColor;
+        return this.attributes.dawn;
     }
 
     get betaColor(): string {
-        return this.attributes.betaColor;
+        return this.attributes.dusk;
     }
 
     get gammaColor(): string {
-        return this.attributes.gammaColor;
+        return this.attributes.tide;
     }
 
     get deltaColor(): string {
-        return this.attributes.deltaColor;
+        return this.attributes.grove;
     }
 
     get epsilonColor(): string {
-        return this.attributes.epsilonColor;
+        return this.attributes.pulse;
     }
 
     get zetaColor(): string {
-        return this.attributes.zetaColor;
+        return this.attributes.flare;
     }
 
     get etaColor(): string {
-        return this.attributes.etaColor;
+        return this.attributes.ember;
     }
 
     get thetaColor(): string {
-        return this.attributes.thetaColor;
+        return this.attributes.mist;
     }
 
     get iotaColor(): string {
-        return this.attributes.iotaColor;
+        return this.attributes.drift;
     }
 
     get kappaColor(): string {
-        return this.attributes.kappaColor;
+        return this.attributes.slate;
     }
 
     getColorByIndex(index: number): string {
@@ -136,123 +134,123 @@ export class DiagramTheme {
 }
 
 export const AutumnOfficeTheme: ThemeAttributes = {
-    // Colors for blocks
-    alphaColor: "#54402b",
-    betaColor: "#fff980",
-    gammaColor: "#b0956d",
-    deltaColor: "#c4a785",
-    epsilonColor: "#d8b89d",
-    zetaColor: "#ecc9b5",
-    etaColor: "#ffdacd",
-    thetaColor: "#ffe6dc",
-    iotaColor: "#fff2eb",
-    kappaColor: "#fff9f6",
+    // Colors for blocks, inspired by autumn leaves and cozy office tones
+    dawn: "#6D4C41", // Deep brown (wood desk)
+    dusk: "#8D6E63", // Muted mauve (leather chair)
+    tide: "#A1887F", // Warm taupe (office walls)
+    grove: "#7E886D", // Olive green (plants)
+    pulse: "#FFD54F", // Golden yellow (autumn leaves)
+    flare: "#FFB300", // Pumpkin orange (leaves)
+    ember: "#D84315", // Brick red (leaves)
+    mist: "#FF8A65", // Salmon pink (soft light)
+    drift: "#80CBC4", // Muted teal (stationery)
+    slate: "#FFF8E1", // Cream (paper, light)
 
     // Canvas basics
-    backgroundColor: "#918a7c",
-    surfaceColor: "#d3bb98",
+    backgroundColor: "#F5E9DA", // Light tan, cozy
+    surfaceColor: "#FFE0B2", // Warm, soft orange
     fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#2c2c2c",
+    fontColor: "#3E2723", // Deep brown for contrast
 };
 
-export const SpringOfficeTheme: ThemeAttributes = {
-    // Colors for blocks
-    alphaColor: "#687f4d",
-    betaColor: "#998d6b",
-    gammaColor: "#8aa970",
-    deltaColor: "#9cb982",
-    epsilonColor: "#aec994",
-    zetaColor: "#c0d9a6",
-    etaColor: "#d2e9b8",
-    thetaColor: "#e4f9ca",
-    iotaColor: "#f6ffdc",
-    kappaColor: "#fafff0",
+export const SteelBlueTheme: ThemeAttributes = {
+    // Colors for blocks, blue spectrum with some blue-adjacent orange/red for contrast
+    dawn: "#1B263B", // Deep navy blue
+    dusk: "#274472", // Steel blue indigo
+    tide: "#41729F", // Classic steel blue
+    grove: "#5A9BD5", // Blue-leaning teal
+    pulse: "#6CA0DC", // Light steel blue
+    flare: "#FF914D", // Muted orange, blue-adjacent
+    ember: "#FF5A5F", // Coral red, blue-adjacent
+    mist: "#BFD7ED", // Very pale blue
+    drift: "#3EC6CF", // Blue-teal
+    slate: "#F0F4FA", // Almost white blue
 
     // Canvas basics
-    backgroundColor: "#999999",
-    surfaceColor: "#90948b",
+    backgroundColor: "#16213E", // Deepest blue for background
+    surfaceColor: "#41729F", // Steel blue for surface
     fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#2c2c2c",
+    fontColor: "#F0F4FA", // Very light blue for contrast
 };
 
-export const SummerOfficeTheme: ThemeAttributes = {
-    // Colors for blocks
-    alphaColor: "#996d2e",
-    betaColor: "#997f2f",
-    gammaColor: "#b18e47",
-    deltaColor: "#c99d5f",
-    epsilonColor: "#e1ac77",
-    zetaColor: "#f9bb8f",
-    etaColor: "#ffcaa7",
-    thetaColor: "#ffd9bf",
-    iotaColor: "#ffe8d7",
-    kappaColor: "#fff7ef",
+export const SummerGazeboTheme: ThemeAttributes = {
+    // Colors for blocks, inspired by the color names but in a vibrant, summery New Orleans palette
+    dawn: "#7C3AED", // Electric purple (festival lights)
+    dusk: "#4338CA", // Deep indigo (evening sky)
+    tide: "#2563EB", // Bright blue (clear sky)
+    grove: "#22C55E", // Lush green (garden)
+    pulse: "#FACC15", // Sun yellow (hot sun)
+    flare: "#FB923C", // Vibrant orange (carnival)
+    ember: "#EF4444", // Hot red (spicy food, music)
+    mist: "#F472B6", // Pink (floral, lively)
+    drift: "#2DD4BF", // Teal (cool drinks, water)
+    slate: "#FCD34D", // Warm tan (sunlit stone)
 
     // Canvas basics
-    backgroundColor: "#99978a",
-    surfaceColor: "#998d6b",
+    backgroundColor: "#FFF7ED", // Hazy, sun-bleached
+    surfaceColor: "#FDE68A", // Warm, glowing
     fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#2c2c2c",
+    fontColor: "#3B1F0A", // Deep brown for contrast
 };
 
-export const WinterOfficeTheme: ThemeAttributes = {
-    // Colors for blocks
-    alphaColor: "#567995",
-    betaColor: "#889197",
-    gammaColor: "#7a9bab",
-    deltaColor: "#8cabbb",
-    epsilonColor: "#9ebbc9",
-    zetaColor: "#b0cbd7",
-    etaColor: "#c2dbe5",
-    thetaColor: "#d4ebf3",
-    iotaColor: "#e6fbff",
-    kappaColor: "#f8ffff",
+export const IndustryOceanTheme: ThemeAttributes = {
+    // Colors for blocks, inspired by the color names but in an industry/ocean palette
+    dawn: "#3D3B6D", // Deep violet, industrial twilight
+    dusk: "#234E70", // Indigo, ocean depth
+    tide: "#2389A4", // Ocean blue
+    grove: "#3CB371", // Seaweed green
+    pulse: "#F2C84B", // Sunlit yellow
+    flare: "#F2994B", // Rusty orange, industrial metal
+    ember: "#B0413E", // Rust red, oxidized steel
+    mist: "#D17CA7", // Coral pink, sea coral
+    drift: "#3CCFCF", // Teal, tropical water
+    slate: "#B8B09C", // Sand tan, beach sand
 
     // Canvas basics
-    backgroundColor: "#8d8f90",
-    surfaceColor: "#697276",
+    backgroundColor: "#1B263B", // Deep ocean/industrial night
+    surfaceColor: "#415A77", // Steel blue
     fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#2c2c2c",
-};
-
-export const OceanIndustryTheme: ThemeAttributes = {
-    // Colors for blocks
-    alphaColor: "#0179d9",
-    betaColor: "#02beff",
-    gammaColor: "#1ac6ff",
-    deltaColor: "#32ceff",
-    epsilonColor: "#4ad6ff",
-    zetaColor: "#62deff",
-    etaColor: "#7ae6ff",
-    thetaColor: "#92eeff",
-    iotaColor: "#aaf6ff",
-    kappaColor: "#c2feff",
-
-    // Canvas basics
-    backgroundColor: "#869496",
-    surfaceColor: "#00868c",
-    fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#ffffff",
+    fontColor: "#E0E1DD", // Light foam
 };
 
 export const ForestFactoryTheme: ThemeAttributes = {
-    // Colors for blocks
-    alphaColor: "#40af46",
-    betaColor: "#8eff94",
-    gammaColor: "#52bf58",
-    deltaColor: "#64cf6a",
-    epsilonColor: "#76df7c",
-    zetaColor: "#88ef8e",
-    etaColor: "#9affa0",
-    thetaColor: "#acffb2",
-    iotaColor: "#bfffc4",
-    kappaColor: "#d1ffd6",
+    // Colors for blocks, inspired by the color names but in a forest/factory palette
+    dawn: "#5B466E", // Muted violet, like forest shadows
+    dusk: "#3B4A6B", // Deep indigo, industrial steel blue
+    tide: "#3A6B7C", // Blue spruce
+    grove: "#2E7D32", // Forest green
+    pulse: "#B5A642", // Mossy yellow
+    flare: "#C97E4B", // Rusty orange, factory metal
+    ember: "#A63D40", // Brick red, industrial brick
+    mist: "#B97A95", // Dusty pink, wildflowers
+    drift: "#4B7B6C", // Teal, pine needles
+    slate: "#C2B280", // Tan, tree bark
 
     // Canvas basics
-    backgroundColor: "#848e78",
-    surfaceColor: "#76c241",
+    backgroundColor: "#23291F", // Deep forest floor
+    surfaceColor: "#5A6E4F", // Mossy green
     fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#2c2c2c",
+    fontColor: "#F3F3E6", // Light lichen
 };
 
-export let currentDiagramTheme = new DiagramTheme(ForestFactoryTheme);
+export const VibrantRainbowTheme: ThemeAttributes = {
+    // Colors for blocks with maximum contrast
+    dawn: "#FF0000", // Pure red
+    dusk: "#FF7700", // Vibrant orange
+    tide: "#FFDD00", // Bright yellow
+    grove: "#00CC00", // Vivid green
+    pulse: "#0066FF", // Strong blue
+    flare: "#3300FF", // Deep indigo
+    ember: "#9900FF", // Rich violet
+    mist: "#FF00AA", // Hot pink
+    drift: "#00CCCC", // Teal
+    slate: "#D2B48C", // Classic tan
+
+    // Canvas basics
+    backgroundColor: "#1A1A1A", // Dark gray for best contrast
+    surfaceColor: "#FFFFFF", // White surface
+    fontFace: "Inter, system-ui, sans-serif",
+    fontColor: "#FFFFFF", // White text
+};
+
+export let currentDiagramTheme = new DiagramTheme(ContrastTheme);

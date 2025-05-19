@@ -1,6 +1,5 @@
 import { menetherenComponents } from "../../data/menetherenComponents.ts";
-import { Block, SimpleBlock } from "./Block.tsx";
-import { Connections } from "./Connections.tsx";
+import { SimpleBlock } from "./ComponentBlock.tsx";
 import { Ground } from "./Ground.tsx";
 import { ScfComponent } from "../../scfile-loader/ScryrComponent.ts";
 import { currentDiagramTheme } from "../../theme/index.ts";
@@ -23,7 +22,7 @@ export function Diagram() {
       {scdComponents.map((comp, index) => (
         <SimpleBlock
           key={index}
-          position={[comp.x, 0, comp.z]}
+          position={[comp.x, 1, comp.z]}
           color={comp.color}
           name={comp.scComponent.name}
         />
