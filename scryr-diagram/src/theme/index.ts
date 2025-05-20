@@ -26,70 +26,70 @@ export class DiagramTheme {
     }
 
     // Basic colors
-    get alphaColor(): string {
+    get dawnColor(): string {
         return this.attributes.dawn;
     }
 
-    get betaColor(): string {
+    get duskColor(): string {
         return this.attributes.dusk;
     }
 
-    get gammaColor(): string {
+    get tideColor(): string {
         return this.attributes.tide;
     }
 
-    get deltaColor(): string {
+    get groveColor(): string {
         return this.attributes.grove;
     }
 
-    get epsilonColor(): string {
+    get pulseColor(): string {
         return this.attributes.pulse;
     }
 
-    get zetaColor(): string {
+    get flareColor(): string {
         return this.attributes.flare;
     }
 
-    get etaColor(): string {
+    get emberColor(): string {
         return this.attributes.ember;
     }
 
-    get thetaColor(): string {
+    get mistColor(): string {
         return this.attributes.mist;
     }
 
-    get iotaColor(): string {
+    get driftColor(): string {
         return this.attributes.drift;
     }
 
-    get kappaColor(): string {
+    get slateColor(): string {
         return this.attributes.slate;
     }
 
     getColorByIndex(index: number): string {
         switch (index % 10) {
-            case 0:
-                return this.alphaColor;
-            case 1:
-                return this.betaColor;
-            case 2:
-                return this.gammaColor;
-            case 3:
-                return this.deltaColor;
-            case 4:
-                return this.epsilonColor;
-            case 5:
-                return this.zetaColor;
-            case 6:
-                return this.etaColor;
-            case 7:
-                return this.thetaColor;
-            case 8:
-                return this.iotaColor;
             case 9:
-                return this.kappaColor;
+                return this.dawnColor;
+            case 8:
+                return this.duskColor;
+            case 2:
+                return this.tideColor;
+            case 3:
+                return this.groveColor;
+            case 0:
+                return this.pulseColor;
+            case 5:
+                return this.flareColor;
+            case 6:
+                return this.emberColor;
+            case 7:
+                return this.mistColor;
+            case 1:
+                return this.driftColor;
+            case 4:
+                return this.slateColor;
             default:
-                return this.alphaColor;
+                return this.dawnColor;
         }
     }
 
@@ -113,16 +113,16 @@ export class DiagramTheme {
     toCSSVariables(): Record<string, string> {
         return {
             // Basic colors
-            "--alpha": this.alphaColor,
-            "--beta": this.betaColor,
-            "--gamma": this.gammaColor,
-            "--delta": this.deltaColor,
-            "--epsilon": this.epsilonColor,
-            "--zeta": this.zetaColor,
-            "--eta": this.etaColor,
-            "--theta": this.thetaColor,
-            "--iota": this.iotaColor,
-            "--kappa": this.kappaColor,
+            "--alpha": this.dawnColor,
+            "--beta": this.duskColor,
+            "--gamma": this.tideColor,
+            "--delta": this.groveColor,
+            "--epsilon": this.pulseColor,
+            "--zeta": this.flareColor,
+            "--eta": this.emberColor,
+            "--theta": this.mistColor,
+            "--iota": this.driftColor,
+            "--kappa": this.slateColor,
 
             // Canvas basics
             "--background": this.background,
@@ -150,7 +150,7 @@ export const AutumnOfficeTheme: ThemeAttributes = {
     backgroundColor: "#F5E9DA", // Light tan, cozy
     surfaceColor: "#FFE0B2", // Warm, soft orange
     fontFace: "Inter, system-ui, sans-serif",
-    fontColor: "#3E2723", // Deep brown for contrast
+    fontColor: "#FFE0B2", // Deep brown for contrast
 };
 
 export const SteelBlueTheme: ThemeAttributes = {
@@ -253,4 +253,4 @@ export const VibrantRainbowTheme: ThemeAttributes = {
     fontColor: "#FFFFFF", // White text
 };
 
-export let currentDiagramTheme = new DiagramTheme(ContrastTheme);
+export let currentDiagramTheme = new DiagramTheme(AutumnOfficeTheme);

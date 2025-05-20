@@ -7,10 +7,14 @@ export function SimpleBlock({
   position,
   color,
   name,
+  fontColor,
+  fontFace,
 }: {
   position: [number, number, number];
-  color?: string;
-  name?: string;
+  color: string;
+  name: string;
+  fontColor: string;
+  fontFace: string;
 }) {
   const wd = 3;
   const ht = 2;
@@ -20,7 +24,7 @@ export function SimpleBlock({
       <Text
         position={[.3, 0, .51]}
         fontSize={0.2}
-        color="black"
+        color={fontColor}
         anchorX="center"
         anchorY="middle"
       >
