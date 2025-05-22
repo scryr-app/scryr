@@ -21,7 +21,7 @@ const authService = new ScfComponent({
 });
 
 const frontEndApp = new ScfComponent({
-  name: "Frontend App",
+  name: "FrontEnd Core",
   icon: "🌐",
   description: "The user-facing web frontend",
   version: "2.0.1",
@@ -35,7 +35,7 @@ const frontEndApp = new ScfComponent({
 });
 
 const backEndApp = new ScfComponent({
-  name: "Backend App",
+  name: "Servicability",
   icon: "⚙️",
   description: "The backend service for data processing",
   version: "3.1.0",

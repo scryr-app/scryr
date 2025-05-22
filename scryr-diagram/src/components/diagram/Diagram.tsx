@@ -25,6 +25,9 @@ export function Diagram() {
           position={[comp.x, 1, comp.z]}
           color={comp.color}
           name={comp.scComponent.name}
+          description={comp.scComponent.description}
+          version={comp.scComponent.version}
+          sourceCodeUrl={comp.scComponent.sourceCodeUrl}
           fontColor={currentTheme.fontColor}
           fontFace={currentTheme.fontFace}
         />

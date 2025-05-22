@@ -21,11 +21,9 @@ function App() {
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Diagram />
         <OrbitControls
-          enablePan={false}
-          enableZoom={false}
           target={[0, 0, 0]}
-          maxPolarAngle={Math.PI / 2.2}
-          minPolarAngle={Math.PI / 4}
+          maxPolarAngle={Math.PI / 2 - Math.PI / 18}
+          minPolarAngle={0}
         />
       </Canvas>
     </div>
