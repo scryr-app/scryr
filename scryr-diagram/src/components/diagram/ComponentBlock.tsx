@@ -1,8 +1,14 @@
-import { Html, RoundedBox, Text } from "@react-three/drei";
-import { Box, Flex } from "@react-three/flex";
+import { RoundedBox, Text } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 
-import { useRef, useState } from "react";
+// Elastic ease-in function
+function easeInElastic(t: number): number {
+  if (t === 0) return 0;
+  if (t === 1) return 1;
+  const c4 = (2 * Math.PI) / 3;
+  return -Math.pow(2, 10 * t - 10) * Math.sin((t * 10 - 10.75) * c4);
+}
 
 export function SimpleBlock({
   position,
@@ -12,7 +18,6 @@ export function SimpleBlock({
   version,
   sourceCodeUrl,
   fontColor,
-  fontFace,
 }: {
   position: [number, number, number];
   color: string;
@@ -27,16 +32,69 @@ export function SimpleBlock({
   const ht = 2;
   const dp = 1;
 
-  const showBlockFaceContent = description || version || sourceCodeUrl;
+  const [hovered, setHovered] = useState(false);
+  const split = useRef(0);
 
-  // Compose block face content with labels for each present field
+  // Animate block rising up with ease-in-elastic over 2 seconds
+  const animationStart = useRef<number | null>(null);
+  const [rise, setRise] = useState(0);
+
+  useEffect(() => {
+    animationStart.current = performance.now();
+    setRise(0);
+  }, [hovered]); // run once on mount
+
+  // Animate layers moving up for 10 seconds
+  const [layerAnimTime, setLayerAnimTime] = useState(0);
+  const animStart = useRef<number | null>(null);
+
+  useEffect(() => {
+    animStart.current = performance.now();
+    setLayerAnimTime(0);
+  }, []);
+
+  useFrame(() => {
+    // Animate rise for 2 seconds
+    if (animationStart.current !== null && rise < 1) {
+      const elapsed = (performance.now() - animationStart.current) / 2000;
+      const t = Math.min(elapsed, 1);
+      setRise(easeInElastic(t));
+    }
+    // Animate layers moving up for 10 seconds
+    if (animStart.current !== null && layerAnimTime < 10) {
+      const elapsed = (performance.now() - animStart.current) / 1000;
+      setLayerAnimTime(Math.min(elapsed, 10));
+    }
+    // ...existing split animation...
+    const target = hovered ? 1 : 0;
+    split.current = split.current + (target - split.current) * 0.12;
+    if (Math.abs(target - split.current) < 0.001) {
+      split.current = target;
+    }
+  });
+
+  const layerCount = 3;
+  const layerHeight = wd / layerCount;
+  const layerGap = 0.15;
+
   let blockFaceContent = "";
   if (description) blockFaceContent += `Description: ${description}\n`;
   if (version) blockFaceContent += `Version: ${version}\n`;
   if (sourceCodeUrl) blockFaceContent += `Source: ${sourceCodeUrl}`;
 
+  const showBlockFaceContent = description || version || sourceCodeUrl;
+
+  const isSplitting = split.current > 0.01;
+
+  // Animate the group up from y=position[1] to y=position[1]+1 (or adjust as needed)
+  const animatedY = position[1] + rise;
+
   return (
-    <group position={position}>
+    <group
+      position={[position[0], animatedY, position[2]]}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    >
       {/* Top label */}
       <Text
         position={[0, wd / 2 + 0.01, 0]}
@@ -63,68 +121,34 @@ export function SimpleBlock({
           {blockFaceContent}
         </Text>
       )}
-      <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
-        <meshStandardMaterial color={color} />
-      </RoundedBox>
-    </group>
-  );
-}
-
-export function Block({
-  position,
-  color,
-  icon,
-}: {
-  position: [number, number, number];
-  color: string;
-  icon?: React.ReactNode;
-}) {
-  const [hovered, setHovered] = useState(false);
-  const targetSplit = hovered ? [0.5, 0.25, 0] : [0.3, 0.15, 0]; // Further increased spacing
-  // deno-lint-ignore no-explicit-any
-  const yRefs = [useRef<any>(null), useRef<any>(null), useRef<any>(null)];
-  const yPositions = useRef([0.8, 0.4, 0]); // Adjusted initial positions for more spacing
-
-  useFrame(() => {
-    for (let i = 0; i < 3; i++) {
-      yPositions.current[i] += (targetSplit[i] - yPositions.current[i]) * 0.1;
-      yPositions.current[i] = Math.max(yPositions.current[i], 0); // Ensure y >= 0
-      if (yRefs[i].current) {
-        yRefs[i].current.position.y = yPositions.current[i];
-      }
-    }
-  });
-
-  return (
-    <group
-      position={position}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
-      <RoundedBox
-        ref={yRefs[2]}
-        args={[1, 0.3, 1]}
-        radius={0.08}
-        smoothness={4}
-      >
-        <meshStandardMaterial color={color} />
-      </RoundedBox>
-      <RoundedBox
-        ref={yRefs[1]}
-        args={[1, 0.3, 1]}
-        radius={0.08}
-        smoothness={4}
-      >
-        <meshStandardMaterial color={color} />
-      </RoundedBox>
-      <RoundedBox
-        ref={yRefs[0]}
-        args={[1, 0.3, 1]}
-        radius={0.08}
-        smoothness={4}
-      >
-        <meshStandardMaterial color={color} />
-      </RoundedBox>
+      {/* Only split into layers after mouse is over, otherwise show single box */}
+      {!isSplitting
+        ? (
+          <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
+            <meshStandardMaterial color={color} />
+          </RoundedBox>
+        )
+        : (
+          [0, 1, 2].map((i) => {
+            // Animate each layer up over 10 seconds
+            const upOffset = layerAnimTime < 10 ? layerAnimTime : 10;
+            const baseY = (i - 1) * layerHeight;
+            const splitY = (i - 1) * (layerHeight + layerGap);
+            const y = (baseY * (1 - split.current) + splitY * split.current) +
+              upOffset * 0.15; // 0.15 units per second
+            return (
+              <RoundedBox
+                key={i}
+                args={[ht, layerHeight, dp]}
+                radius={0.08}
+                smoothness={4}
+                position={[0, y, 0]}
+              >
+                <meshStandardMaterial color={color} />
+              </RoundedBox>
+            );
+          })
+        )}
     </group>
   );
 }
