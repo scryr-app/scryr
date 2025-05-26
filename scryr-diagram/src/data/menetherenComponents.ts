@@ -66,4 +66,5 @@ export const menetherenComponents: ScfComponent[] = [
   frontEndApp,
   authService,
   backEndApp,
+  dataOrchestratorApp,
 ];

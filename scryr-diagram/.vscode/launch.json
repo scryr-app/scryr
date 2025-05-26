@@ -1,48 +1,48 @@
 {
-    "version": "0.2.0",
-    "compounds": [
-        {
-            "name": "🐞 Full Debug",
-            "configurations": ["Vite Dev", "Chrome Debug"]
-        }
-    ],
-    "configurations": [
-        {
-            "request": "launch",
-            "name": "Deno Lunch",
-            "type": "node",
-            "program": "${workspaceFolder}/main.ts",
-            "cwd": "${workspaceFolder}",
-            "env": {},
-            "runtimeExecutable": "/opt/homebrew/bin/deno",
-            "runtimeArgs": [
-                "run",
-                "--unstable",
-                "--inspect-wait",
-                "--allow-all"
-            ],
-            "attachSimplePort": 9229
-        },
-        {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Chrome Debug",
-            "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}/src",
-            "breakOnLoad": true
-        },
-        {
-            "type": "pwa-node",
-            "request": "launch",
-            "name": "Vite Dev",
-            "program": "${workspaceFolder}/node_modules/vite/bin/vite.js",
-            "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "node",
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "console": "integratedTerminal",
-            "port": 9229
-        },
-    ]
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "🐞 Full Debug",
+      "configurations": ["Vite Dev", "Chrome Debug"]
+    }
+  ],
+  "configurations": [
+    {
+      "request": "launch",
+      "name": "Deno Lunch",
+      "type": "node",
+      "program": "${workspaceFolder}/main.ts",
+      "cwd": "${workspaceFolder}",
+      "env": {},
+      "runtimeExecutable": "/opt/homebrew/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--unstable",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229
+    },
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Chrome Debug",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Vite Dev",
+      "program": "${workspaceFolder}/node_modules/vite/bin/vite.js",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "node",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal",
+      "port": 9229
+    }
+  ]
 }
