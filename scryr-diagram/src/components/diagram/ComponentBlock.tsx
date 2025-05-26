@@ -1,4 +1,5 @@
-import { Html, RoundedBox, Text } from "@react-three/drei";
+import { RoundedBox, Text } from "@react-three/drei";
+import { BlockFaceContent } from "./block/BlockFaceContent.tsx";
 
 export function SimpleBlock({
   position,
@@ -25,12 +26,6 @@ export function SimpleBlock({
 
   const showBlockFaceContent = description || version || sourceCodeUrl;
 
-  // Compose block face content with labels for each present field
-  let blockFaceContent = "";
-  if (description) blockFaceContent += `Description: ${description}\n`;
-  if (version) blockFaceContent += `Version: ${version}\n`;
-  // Remove sourceCodeUrl from blockFaceContent, will render as link below
-
   return (
     <group position={position}>
       {/* Top label */}
@@ -46,28 +41,11 @@ export function SimpleBlock({
       </Text>
       {/* Side label (centered on the +Z face) */}
       {showBlockFaceContent && (
-        <>
-          <Text
-            position={[0, 0.1, dp / 2 + 0.01]}
-            rotation={[0, 0, 0]}
-            fontSize={0.10}
-            color={fontColor}
-            anchorX="center"
-            anchorY="middle"
-            maxWidth={1.8}
-            textAlign="center"
-          >
-            {blockFaceContent}
-            {sourceCodeUrl && (
-              <Text
-                fontSize={0.09}
-                onClick={() => window.open(sourceCodeUrl, "_blank")}
-              >
-                Source: {sourceCodeUrl}
-              </Text>
-            )}
-          </Text>
-        </>
+        <BlockFaceContent
+          description={description}
+          version={version}
+          sourceCodeUrl={sourceCodeUrl}
+        />
       )}
       <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
         <meshStandardMaterial color={color} />

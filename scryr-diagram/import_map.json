@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "theme/": "./src/theme/",
+    "diagram/": "./src/diagram/",
+    "data/": "./src/data/",
+    "assets/": "./src/assets/",
+    "scfile-loader/": "./src/scfile-loader/",
+    "@/": "./src/"
+  }
+}
