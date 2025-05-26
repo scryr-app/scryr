@@ -4,6 +4,7 @@ import { Ground } from "./Ground.tsx";
 import { ScfComponent } from "../../scfile-loader/ScryrComponent.ts";
 import { currentDiagramTheme } from "../../theme/index.ts";
 import { convertScryrToDiagramModel } from "./scryrDiagramModel.ts";
+// import ExampleIcon from "../../assets/react.svg"; // Import your SVG as a React component
 
 // Note: For most use cases, the best positioning/layout library for React Three Fiber is:
 // @react-three/flex - Flexbox-style 3D layouts (https://github.com/pmndrs/react-three-flex)
@@ -30,6 +31,7 @@ export function Diagram() {
           sourceCodeUrl={comp.scComponent.sourceCodeUrl}
           fontColor={currentTheme.fontColor}
           fontFace={currentTheme.fontFace}
+          // svgIcon={ExampleIcon}
         />
       ))}
     </>

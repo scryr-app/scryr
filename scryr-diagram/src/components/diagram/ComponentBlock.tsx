@@ -13,6 +13,7 @@ export function SimpleBlock({
   sourceCodeUrl,
   fontColor,
   fontFace,
+  svgIcon,
 }: {
   position: [number, number, number];
   color: string;
@@ -22,6 +23,7 @@ export function SimpleBlock({
   sourceCodeUrl: string;
   fontColor: string;
   fontFace: string;
+  svgIcon?: React.ReactNode;
 }) {
   const wd = 3;
   const ht = 2;
@@ -61,6 +63,17 @@ export function SimpleBlock({
           textAlign="center"
         >
           {blockFaceContent}
+          {svgIcon && (
+            <tspan
+              dy={18}
+              x="50%"
+              textAnchor="middle"
+              alignmentBaseline="middle"
+            >
+              {/* Render SVG icon as React node */}
+              {svgIcon}
+            </tspan>
+          )}
         </Text>
       )}
       <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
