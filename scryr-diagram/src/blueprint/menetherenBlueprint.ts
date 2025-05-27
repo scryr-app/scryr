@@ -3,7 +3,7 @@ import {
   Deployment,
   Framework,
   Language,
-} from "./blueprint-types.ts";
+} from "./blueprintTypes.ts";
 
 // Define the ScryrComponent instances based on menetheren.json
 const authService = new Blueprint({

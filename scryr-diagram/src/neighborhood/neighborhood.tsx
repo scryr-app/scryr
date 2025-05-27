@@ -1,20 +1,20 @@
-import { menetherenBlueprints } from "../../blueprint/menetheren-blueprint.ts";
-import { SimpleBlock } from "./ComponentBlock.tsx";
-import { Ground } from "./Ground.tsx";
-import { Blueprint } from "../../blueprint/blueprint-types.ts";
-import { currentTheme } from "../../facade/theme.ts";
-import { convertScryrToDiagramModel } from "./scryrDiagramModel.ts";
+import { menetherenBlueprints } from "../blueprint/menetherenBlueprint.ts";
+import { Building } from "./Building.tsx";
+import { Ground } from "./ground.tsx";
+import { Blueprint } from "../blueprint/blueprintTypes.ts";
+import { currentTheme } from "./theme.ts";
+import { createNeighborhood } from "./createNeighborhood.ts";
 
-export function Diagram() {
+export function Neighborhood() {
   const blprnts: Blueprint[] = menetherenBlueprints;
 
-  const blueprints = convertScryrToDiagramModel(blprnts, currentTheme);
+  const blueprints = createNeighborhood(blprnts, currentTheme);
 
   return (
     <>
       <Ground />
       {blueprints.map((comp, index) => (
-        <SimpleBlock
+        <Building
           key={index}
           position={[comp.x, 1, comp.z]}
           color={comp.color}

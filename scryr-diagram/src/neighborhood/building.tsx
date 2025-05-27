@@ -1,7 +1,7 @@
 import { RoundedBox, Text } from "@react-three/drei";
-import { BlockFaceContent } from "./BlockFaceContent.tsx";
+import { FaceContent } from "../facade/index.tsx";
 
-export function SimpleBlock({
+export function Building({
   position,
   color,
   name,
@@ -41,7 +41,7 @@ export function SimpleBlock({
       </Text>
       {/* Side label (centered on the +Z face) */}
       {showBlockFaceContent && (
-        <BlockFaceContent
+        <FaceContent
           description={description}
           version={version}
           sourceCodeUrl={sourceCodeUrl}

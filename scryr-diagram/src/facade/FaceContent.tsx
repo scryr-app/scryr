@@ -1,7 +1,7 @@
 import { Text } from "@react-three/drei";
-import { currentTheme } from "../../facade/theme.ts";
+import { currentTheme } from "../neighborhood/theme.ts";
 
-export function BlockFaceContent({
+export function FaceContent({
   description,
   sourceCodeUrl,
   version,

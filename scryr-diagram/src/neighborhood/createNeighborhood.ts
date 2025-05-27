@@ -1,17 +1,17 @@
 import dagre from "dagre";
-import { ScfComponent } from "../../scfile-loader/ScryrComponent.ts";
-import { DiagramTheme } from "../../theme/theme.ts";
+import { Blueprint } from "../blueprint/blueprint-types.ts";
+import { NeighborhoodTheme } from "../facade/theme.ts";
 
 // This enhances the scryr file component with layout and colors create a scryr diagram component
 export type ScdComponent = {
-  scComponent: ScfComponent;
+  scComponent: Blueprint;
   x: number;
   z: number;
   color: string;
 };
 
 // deno-lint-ignore no-explicit-any
-function layoutDiagramStructure(components: ScfComponent[]): any {
+function layoutDiagramStructure(components: Blueprint[]): any {
   const g = new dagre.graphlib.Graph();
   g.setGraph({});
   g.setDefaultEdgeLabel(() => ({}));
@@ -35,9 +35,9 @@ function layoutDiagramStructure(components: ScfComponent[]): any {
   return g;
 }
 
-export function convertScryrToDiagramModel(
-  scfComponents: ScfComponent[],
-  theme: DiagramTheme,
+export function createNeighborhood(
+  scfComponents: Blueprint[],
+  theme: NeighborhoodTheme,
 ): ScdComponent[] {
   // Map the positions from the layout to houses
   const g = layoutDiagramStructure(scfComponents);

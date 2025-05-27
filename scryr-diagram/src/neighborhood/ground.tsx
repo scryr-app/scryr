@@ -1,4 +1,4 @@
-import { currentTheme } from "../../facade/theme.ts";
+import { currentTheme } from "./theme.ts";
 
 export function Ground() {
   return (

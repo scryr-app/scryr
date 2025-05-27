@@ -1,6 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Diagram } from "./components/diagram/Diagram.tsx";
+import { Neighborhood } from "./neighborhood/index.tsx";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       >
         <ambientLight intensity={0.7} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Diagram />
+        <Neighborhood />
         <OrbitControls
           target={[0, 0, 0]}
           maxPolarAngle={Math.PI / 2 - Math.PI / 18}
