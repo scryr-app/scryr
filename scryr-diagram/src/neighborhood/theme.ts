@@ -1,15 +1,17 @@
+export type Color = string;
+
 export type ThemeAttributes = {
   // Colors for blocks
-  dawn: string; // violet
-  dusk: string; // indigo
-  tide: string; //  blue
-  grove: string; // green
-  pulse: string; // yellow
-  flare: string; // orange
-  ember: string; // red
-  mist: string; // pink
-  drift: string; // teal
-  slate: string; // tan
+  dawn: color; // violet
+  dusk: color; // indigo
+  tide: color; //  blue
+  grove: color; // green
+  pulse: color; // yellow
+  flare: color; // orange
+  ember: color; // red
+  mist: color; // pink
+  drift: color; // teal
+  slate: color; // tan
 
   // Canvas basics
   backgroundColor: string;

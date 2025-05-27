@@ -244,7 +244,7 @@ export enum Deployment {
 // Define a class for ScryrComponent using the enums
 export class Blueprint {
   name: string;
-  icon: string;
+  emojiIcon: string;
   description: string;
   version: string;
   language: Language;
@@ -281,7 +281,7 @@ export class Blueprint {
     docs: string[];
   }) {
     this.name = name;
-    this.icon = icon;
+    this.emojiIcon = icon;
     this.description = description;
     this.version = version;
     this.language = language;

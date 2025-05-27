@@ -3,12 +3,12 @@ import { Building } from "./Building.tsx";
 import { Ground } from "./ground.tsx";
 import { Blueprint } from "../blueprint/blueprintTypes.ts";
 import { currentTheme } from "./theme.ts";
-import { createNeighborhood } from "./createNeighborhood.ts";
+import { createFacades } from "../facade/createFacades.ts";
 
 export function Neighborhood() {
   const blprnts: Blueprint[] = menetherenBlueprints;
 
-  const blueprints = createNeighborhood(blprnts, currentTheme);
+  const blueprints = createFacades(blprnts, currentTheme);
 
   return (
     <>

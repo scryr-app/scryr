@@ -1,6 +1,6 @@
 import dagre from "dagre";
-import { Blueprint } from "../blueprint/blueprint-types.ts";
-import { NeighborhoodTheme } from "../facade/theme.ts";
+import { Blueprint } from "../blueprint/blueprintTypes.ts";
+import { NeighborhoodTheme } from "../neighborhood/index.tsx";
 
 // This enhances the scryr file component with layout and colors create a scryr diagram component
 export type ScdComponent = {
@@ -35,7 +35,7 @@ function layoutDiagramStructure(components: Blueprint[]): any {
   return g;
 }
 
-export function createNeighborhood(
+export function createFacades(
   scfComponents: Blueprint[],
   theme: NeighborhoodTheme,
 ): ScdComponent[] {
