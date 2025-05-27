@@ -23,5 +23,5 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["scryr-diagram/src", "scryr-diagram/vite.config.ts"],
-  "references": []
+
 }
