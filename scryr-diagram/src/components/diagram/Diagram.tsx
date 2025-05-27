@@ -1,20 +1,20 @@
-import { menetherenComponents } from "../../data/menetherenComponents.ts";
+import { menetherenBlueprints } from "../../blueprint/menetheren-blueprint.ts";
 import { SimpleBlock } from "./ComponentBlock.tsx";
 import { Ground } from "./Ground.tsx";
-import { ScfComponent } from "../../scfile-loader/ScryrComponent.ts";
+import { Blueprint } from "../../blueprint/blueprint-types.ts";
 import { currentDiagramTheme } from "../../theme/theme.ts";
 import { convertScryrToDiagramModel } from "./scryrDiagramModel.ts";
 
 export function Diagram() {
   const currentTheme = currentDiagramTheme;
-  const components: ScfComponent[] = menetherenComponents;
+  const blprnts: Blueprint[] = menetherenBlueprints;
 
-  const scdComponents = convertScryrToDiagramModel(components, currentTheme);
+  const blueprints = convertScryrToDiagramModel(blprnts, currentTheme);
 
   return (
     <>
       <Ground />
-      {scdComponents.map((comp, index) => (
+      {blueprints.map((comp, index) => (
         <SimpleBlock
           key={index}
           position={[comp.x, 1, comp.z]}

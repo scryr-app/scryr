@@ -1,12 +1,12 @@
 import {
+  Blueprint,
   Deployment,
   Framework,
   Language,
-  ScfComponent,
-} from "../scfile-loader/ScryrComponent.ts";
+} from "./blueprint-types.ts";
 
 // Define the ScryrComponent instances based on menetheren.json
-const authService = new ScfComponent({
+const authService = new Blueprint({
   name: "Auth Service",
   icon: "🔒",
   description: "Handles user authentication",
@@ -20,7 +20,7 @@ const authService = new ScfComponent({
   docs: ["https://docs.example.com/auth"],
 });
 
-const frontEndApp = new ScfComponent({
+const frontEndApp = new Blueprint({
   name: "FrontEnd Core",
   icon: "🌐",
   description: "The user-facing web frontend",
@@ -34,7 +34,7 @@ const frontEndApp = new ScfComponent({
   docs: ["https://docs.example.com/frontend"],
 });
 
-const backEndApp = new ScfComponent({
+const backEndApp = new Blueprint({
   name: "Servicability",
   icon: "⚙️",
   description: "The backend service for data processing",
@@ -48,7 +48,7 @@ const backEndApp = new ScfComponent({
   docs: ["https://docs.example.com/backend"],
 });
 
-const dataOrchestratorApp = new ScfComponent({
+const dataOrchestratorApp = new Blueprint({
   name: "Airflow",
   icon: "🍃",
   description: "Data Job runners",
@@ -62,7 +62,7 @@ const dataOrchestratorApp = new ScfComponent({
   docs: ["https://docs.example.com/backend"],
 });
 
-export const menetherenComponents: ScfComponent[] = [
+export const menetherenBlueprints: Blueprint[] = [
   frontEndApp,
   authService,
   backEndApp,
