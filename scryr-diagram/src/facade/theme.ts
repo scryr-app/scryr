@@ -18,7 +18,7 @@ export type ThemeAttributes = {
   fontColor: string;
 };
 
-export class DiagramTheme {
+export class NeighborhoodTheme {
   private attributes: ThemeAttributes;
 
   constructor(attributes: ThemeAttributes) {
@@ -253,4 +253,4 @@ export const VibrantRainbowTheme: ThemeAttributes = {
   fontColor: "#FFFFFF", // White text
 };
 
-export const currentDiagramTheme = new DiagramTheme(AutumnOfficeTheme);
+export const currentTheme = new NeighborhoodTheme(AutumnOfficeTheme);

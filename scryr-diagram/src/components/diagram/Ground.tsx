@@ -1,4 +1,4 @@
-import { currentDiagramTheme } from "../../theme/theme.ts";
+import { currentTheme } from "../../facade/theme.ts";
 
 export function Ground() {
   return (
@@ -8,7 +8,7 @@ export function Ground() {
       position={[0, 0, 0]} // At the horizon (y=0)
     >
       <planeGeometry args={[20, 20]} />
-      <meshStandardMaterial color={currentDiagramTheme.surface} />
+      <meshStandardMaterial color={currentTheme.surface} />
     </mesh>
   );
 }

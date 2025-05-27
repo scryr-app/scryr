@@ -1,5 +1,5 @@
 import { Text } from "@react-three/drei";
-import { currentDiagramTheme } from "../../../theme/theme.ts";
+import { currentTheme } from "../../facade/theme.ts";
 
 export function BlockFaceContent({
   description,
@@ -21,7 +21,7 @@ export function BlockFaceContent({
       position={[0, 0.1, 0.51]}
       rotation={[0, 0, 0]}
       fontSize={0.10}
-      color={currentDiagramTheme.fontColor}
+      color={currentTheme.fontColor}
       anchorX="center"
       anchorY="middle"
       maxWidth={1.8}

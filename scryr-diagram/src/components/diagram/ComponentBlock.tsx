@@ -1,5 +1,5 @@
 import { RoundedBox, Text } from "@react-three/drei";
-import { BlockFaceContent } from "./block/BlockFaceContent.tsx";
+import { BlockFaceContent } from "./BlockFaceContent.tsx";
 
 export function SimpleBlock({
   position,
