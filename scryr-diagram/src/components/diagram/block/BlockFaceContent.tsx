@@ -1,5 +1,5 @@
 import { Text } from "@react-three/drei";
-import { currentDiagramTheme } from "../../../theme/index.ts";
+import { currentDiagramTheme } from "../../../theme/theme.ts";
 
 export function BlockFaceContent({
   description,

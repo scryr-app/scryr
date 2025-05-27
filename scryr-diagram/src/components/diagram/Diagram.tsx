@@ -2,7 +2,7 @@ import { menetherenComponents } from "../../data/menetherenComponents.ts";
 import { SimpleBlock } from "./ComponentBlock.tsx";
 import { Ground } from "./Ground.tsx";
 import { ScfComponent } from "../../scfile-loader/ScryrComponent.ts";
-import { currentDiagramTheme } from "../../theme/index.ts";
+import { currentDiagramTheme } from "../../theme/theme.ts";
 import { convertScryrToDiagramModel } from "./scryrDiagramModel.ts";
 
 export function Diagram() {

@@ -1,4 +1,4 @@
-import { currentDiagramTheme } from "../../theme/index.ts";
+import { currentDiagramTheme } from "../../theme/theme.ts";
 
 export function Ground() {
   return (

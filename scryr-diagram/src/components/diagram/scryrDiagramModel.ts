@@ -1,6 +1,6 @@
 import dagre from "dagre";
 import { ScfComponent } from "../../scfile-loader/ScryrComponent.ts";
-import { DiagramTheme } from "../../theme/index.ts";
+import { DiagramTheme } from "../../theme/theme.ts";
 
 // This enhances the scryr file component with layout and colors create a scryr diagram component
 export type ScdComponent = {
