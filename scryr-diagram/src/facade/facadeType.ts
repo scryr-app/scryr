@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type Color = string;
 
 export enum ThemeColorName {
@@ -31,10 +33,18 @@ export type LinkingOrnament = {
     link?: Url;
 };
 
+// Add a layer here.
+// export type Floor = {
+//     rightOrnament: ReactNode;
+//     centerOrnament: ReactNode;
+//     leftOrnament: ReactNode;
+// };
+
 export type FacadeBuilding = {
     name: string;
-    emojiIcon: string;
+    icon: string;
     description: string;
+
     version: Version;
     language: LinkingOrnament;
     frameworks: LinkingOrnament[];
@@ -44,7 +54,7 @@ export type FacadeBuilding = {
     links: LinkingOrnament[];
     docs: string[];
 
-    // Display
-    position: [number, number, number];
-    buildingColor: Color;
+    // Initial Display Suggestions
+    suggestedPosition: [number, number, number];
+    suggestedBuildingColor: Color;
 };
