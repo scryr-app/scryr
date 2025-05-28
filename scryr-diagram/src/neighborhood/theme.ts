@@ -1,24 +1,4 @@
-export type Color = string;
-
-export type ThemeAttributes = {
-  // Colors for blocks
-  dawn: color; // violet
-  dusk: color; // indigo
-  tide: color; //  blue
-  grove: color; // green
-  pulse: color; // yellow
-  flare: color; // orange
-  ember: color; // red
-  mist: color; // pink
-  drift: color; // teal
-  slate: color; // tan
-
-  // Canvas basics
-  backgroundColor: string;
-  surfaceColor: string;
-  fontFace: string;
-  fontColor: string;
-};
+import { ThemeAttributes } from "../facade/facadeType.ts";
 
 export class NeighborhoodTheme {
   private attributes: ThemeAttributes;

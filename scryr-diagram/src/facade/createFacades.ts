@@ -1,6 +1,6 @@
 import dagre from "dagre";
 import { Blueprint } from "../blueprint/blueprintTypes.ts";
-import { NeighborhoodTheme } from "../neighborhood/index.tsx";
+import { NeighborhoodTheme } from "../neighborhood/theme.ts";
 
 // This enhances the scryr file component with layout and colors create a scryr diagram component
 export type ScdComponent = {
