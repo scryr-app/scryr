@@ -1,5 +1,6 @@
 import { RoundedBox, Text } from "@react-three/drei";
 import { FaceContent } from "../facade/index.tsx";
+import { LinkingOrnament } from "../facade/facadeType.ts";
 
 export function Building({
   position,
@@ -15,7 +16,7 @@ export function Building({
   name: string;
   description: string;
   version: string;
-  sourceCodeUrl: string;
+  sourceCodeUrl?: LinkingOrnament;
   fontColor: string;
   fontFace: string;
   svgIcon?: string; // Now expects a URL to the SVG

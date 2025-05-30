@@ -1,31 +1,28 @@
 import dagre from "dagre";
-import { Blueprint } from "../blueprint/blueprintTypes.ts";
 import { NeighborhoodTheme } from "../neighborhood/theme.ts";
-
-// This enhances the scryr file component with layout and colors create a scryr diagram component
-export type ScdComponent = {
-  scComponent: Blueprint;
-  x: number;
-  z: number;
-  color: string;
-};
+import { Blueprint } from "../blueprint/blueprintTypes.ts";
+import {
+  createLinkingOrnament,
+  createLinkingOrnaments,
+  FacadeBuilding,
+} from "./facadeType.ts";
 
 // deno-lint-ignore no-explicit-any
-function layoutDiagramStructure(components: Blueprint[]): any {
+function layoutDiagramStructure(blueprints: Blueprint[]): any {
   const g = new dagre.graphlib.Graph();
   g.setGraph({});
   g.setDefaultEdgeLabel(() => ({}));
 
   // Add nodes to the graph
-  components.forEach((component: { name: string }) => {
+  blueprints.forEach((component: { name: string }) => {
     g.setNode(component.name, { width: 100, height: 50 });
   });
 
   // Add edges to the graph based on connections
-  components.forEach(
-    (component: { connections: { name: string }[]; name: string }) => {
-      component.connections.forEach((connection: { name: string }) => {
-        g.setEdge(component.name, connection.name);
+  blueprints.forEach(
+    (blueprint: { connections: { name: string }[]; name: string }) => {
+      blueprint.connections.forEach((connection: { name: string }) => {
+        g.setEdge(blueprint.name, connection.name);
       });
     },
   );
@@ -36,23 +33,33 @@ function layoutDiagramStructure(components: Blueprint[]): any {
 }
 
 export function createFacades(
-  scfComponents: Blueprint[],
+  blueprints: Blueprint[],
   theme: NeighborhoodTheme,
-): ScdComponent[] {
+): FacadeBuilding[] {
   // Map the positions from the layout to houses
-  const g = layoutDiagramStructure(scfComponents);
-  const scd = scfComponents.map(
-    (component, index: number) => {
-      const node = g.node(component.name);
+  const g = layoutDiagramStructure(blueprints);
+  const facadeBuilding: FacadeBuilding[] = blueprints.map(
+    (blueprint, index: number) => {
+      const node = g.node(blueprint.name);
       const color = theme.getColorByIndex(index);
       return {
-        scComponent: component,
-        x: (node.x * index) / 50,
-        z: (node.y * index) / 50,
-        color: color,
+        name: blueprint.name,
+        emojiIcon: blueprint.emojiIcon,
+        description: blueprint.description,
+        version: blueprint.version,
+
+        language: createLinkingOrnament(blueprint.language),
+        frameworks: createLinkingOrnaments(blueprint.frameworks),
+        deployment: createLinkingOrnament(blueprint.deployment.valueOf()),
+        sourceCodeUrl: createLinkingOrnament(blueprint.sourceCodeUrl),
+        connections: undefined,
+        links: createLinkingOrnaments(blueprint.links),
+        docs: createLinkingOrnaments(blueprint.docs),
+        suggestedPosition: [(node.x * index) / 50, 0, (node.y * index) / 50],
+        suggestedBuildingColor: color,
       };
     },
   );
 
-  return scd;
+  return facadeBuilding;
 }

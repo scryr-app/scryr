@@ -1,5 +1,6 @@
 import { Text } from "@react-three/drei";
 import { currentTheme } from "../neighborhood/theme.ts";
+import { LinkingOrnament } from "./facadeType.ts";
 
 export function FaceContent({
   description,
@@ -8,7 +9,7 @@ export function FaceContent({
 }: {
   description?: string;
   version?: string;
-  sourceCodeUrl?: string;
+  sourceCodeUrl?: LinkingOrnament;
 }) {
   // Compose block face content with labels for each present field
   let blockFaceContent = "";
@@ -31,9 +32,9 @@ export function FaceContent({
       {sourceCodeUrl && (
         <Text
           fontSize={0.09}
-          onClick={() => globalThis.open(sourceCodeUrl, "_blank")}
+          onClick={() => globalThis.open(sourceCodeUrl.link, "_blank")}
         >
-          Source: {sourceCodeUrl}
+          Source: {sourceCodeUrl.name}
         </Text>
       )}
     </Text>

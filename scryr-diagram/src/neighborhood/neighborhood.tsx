@@ -1,27 +1,31 @@
 import { menetherenBlueprints } from "../blueprint/menetherenBlueprint.ts";
 import { Building } from "./Building.tsx";
-import { Ground } from "./ground.tsx";
 import { Blueprint } from "../blueprint/blueprintTypes.ts";
 import { currentTheme } from "./theme.ts";
 import { createFacades } from "../facade/createFacades.ts";
+import { Ground } from "./Ground.tsx";
 
 export function Neighborhood() {
   const blprnts: Blueprint[] = menetherenBlueprints;
 
-  const blueprints = createFacades(blprnts, currentTheme);
+  const Neighbors = createFacades(blprnts, currentTheme);
 
   return (
     <>
       <Ground />
-      {blueprints.map((comp, index) => (
+      {Neighbors.map((neighbor, index) => (
         <Building
           key={index}
-          position={[comp.x, 1, comp.z]}
-          color={comp.color}
-          name={comp.scComponent.name}
-          description={comp.scComponent.description}
-          version={comp.scComponent.version}
-          sourceCodeUrl={comp.scComponent.sourceCodeUrl}
+          position={[
+            neighbor.suggestedPosition[0],
+            1,
+            neighbor.suggestedPosition[2],
+          ]}
+          color={neighbor.suggestedBuildingColor}
+          name={neighbor.name}
+          description={neighbor.description}
+          version={neighbor.version || ""}
+          sourceCodeUrl={neighbor.sourceCodeUrl}
           fontColor={currentTheme.fontColor}
           fontFace={currentTheme.fontFace}
         />
