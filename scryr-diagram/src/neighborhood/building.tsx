@@ -1,7 +1,7 @@
 import { RoundedBox, Text, useTexture } from "@react-three/drei";
 import { FaceContent } from "../facade/index.tsx";
 import { LinkingOrnament } from "../facade/facadeType.ts";
-import terraformImg from "./terraform.svg";
+import { LogoOrnament } from "../facade/logo.tsx";
 
 export function Building({
   position,
@@ -49,24 +49,12 @@ export function Building({
             version={version}
             sourceCodeUrl={sourceCodeUrl}
           />
-          {/* Display terraform.svg as a texture on a small plane below the FaceContent */}
-          <TerraformLogo />
+          <LogoOrnament />
         </>
       )}
       <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
         <meshStandardMaterial color={color} />
       </RoundedBox>
     </group>
-  );
-}
-
-// Add TerraformLogo component at the bottom of the file
-function TerraformLogo() {
-  const texture = useTexture(terraformImg);
-  return (
-    <mesh position={[0, -0.7, 0.52]}>
-      <planeGeometry args={[0.6, 0.6]} />
-      <meshStandardMaterial map={texture} transparent />
-    </mesh>
   );
 }
