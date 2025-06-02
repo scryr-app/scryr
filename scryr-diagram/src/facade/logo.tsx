@@ -1,6 +1,7 @@
 import { Svg } from "../utils/svg.tsx";
-import androidSvgImg from "./developer-icons/icons/android.svg";
 
-export function LogoOrnament() {
-  return <Svg svgImg={androidSvgImg} />;
+// Accept both import and string path for svgImg
+export function LogoOrnament({ svgImg }: { svgImg: string }) {
+  // If svgImg is a string path, just pass it to Svg
+  return <Svg svgImg={svgImg} />;
 }
