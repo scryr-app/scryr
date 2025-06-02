@@ -1,4 +1,4 @@
-import { RoundedBox, Text, useTexture } from "@react-three/drei";
+import { RoundedBox, Text } from "@react-three/drei";
 import { FaceContent } from "../facade/index.tsx";
 import { LinkingOrnament } from "../facade/facadeType.ts";
 import { LogoOrnament } from "../facade/logo.tsx";
