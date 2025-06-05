@@ -1,6 +1,7 @@
 import { Text } from "@react-three/drei";
 import { currentTheme } from "../neighborhood/theme.ts";
 import { LinkingOrnament } from "./facadeType.ts";
+import { LogoOrnament } from "./logo.tsx";
 
 export function FaceContent({
   description,
@@ -18,25 +19,36 @@ export function FaceContent({
   // Remove sourceCodeUrl from blockFaceContent, will render as link below
 
   return (
-    <Text
-      position={[0, 0.1, 0.51]}
-      rotation={[0, 0, 0]}
-      fontSize={0.10}
-      color={currentTheme.fontColor}
-      anchorX="center"
-      anchorY="middle"
-      maxWidth={1.8}
-      textAlign="center"
-    >
-      {blockFaceContent}
-      {sourceCodeUrl && (
+    <group position={[0, 0.1, 0.51]}>
+      {description && (
         <Text
+          position={[0, 0.15, 0]}
           fontSize={0.09}
-          onClick={() => globalThis.open(sourceCodeUrl.link, "_blank")}
+          color={currentTheme.fontColor}
+          anchorX="center"
+          anchorY="middle"
         >
-          Source: {sourceCodeUrl.name}
+          {description}
         </Text>
       )}
-    </Text>
+      {version && (
+        <Text
+          position={[0, -0.15, 0]}
+          fontSize={0.09}
+          color={currentTheme.fontColor}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {version}
+        </Text>
+      )}
+      {sourceCodeUrl && (
+        <LogoOrnament
+          imgPath="/icons/github-dark.svg"
+          position={[0, -0.15, 0]}
+          link={sourceCodeUrl.link}
+        />
+      )}
+    </group>
   );
 }

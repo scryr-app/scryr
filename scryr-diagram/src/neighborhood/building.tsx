@@ -2,6 +2,7 @@ import { RoundedBox, Text } from "@react-three/drei";
 import { FaceContent } from "../facade/index.tsx";
 import { LinkingOrnament } from "../facade/facadeType.ts";
 import { LogoOrnament } from "../facade/logo.tsx";
+import { Box, Flex } from "@react-three/flex";
 
 export function Building({
   position,
@@ -30,31 +31,37 @@ export function Building({
 
   return (
     <group position={position}>
-      {/* Top label */}
-      <Text
-        position={[0, wd / 2 + 0.01, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        fontSize={0.2}
-        color={fontColor}
-        anchorX="center"
-        anchorY="middle"
+      <Flex
+        justifyContent="center"
+        alignItems="center"
       >
-        {name}
-      </Text>
-      {/* Side label (centered on the +Z face) */}
-      {showBlockFaceContent && (
-        <>
-          <FaceContent
-            description={description}
-            version={version}
-            sourceCodeUrl={sourceCodeUrl}
-          />
-          <LogoOrnament svgImg="/icons/android.svg" />
-        </>
-      )}
-      <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
-        <meshStandardMaterial color={color} />
-      </RoundedBox>
+        {/* <Box> */}
+        <Text
+          position={[0, wd / 2 + 0.01, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          fontSize={0.2}
+          color={fontColor}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {name}
+        </Text>
+        {/* Side label (centered on the +Z face) */}
+        {showBlockFaceContent && (
+          <>
+            <FaceContent
+              description={description}
+              version={version}
+              sourceCodeUrl={sourceCodeUrl}
+            />
+            <LogoOrnament imgPath="/icons/android.svg" />
+          </>
+        )}
+        {/* </Box> */}
+        <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
+          <meshStandardMaterial color={color} />
+        </RoundedBox>
+      </Flex>
     </group>
   );
 }

@@ -12,6 +12,8 @@ export function Neighborhood() {
 
   return (
     <>
+      <axesHelper args={[15]} />
+      <gridHelper args={[50, 50]} />
       <Ground />
       {Neighbors.map((neighbor, index) => (
         <Building
