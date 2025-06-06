@@ -2,6 +2,7 @@ import { Text } from "@react-three/drei";
 import { currentTheme } from "../neighborhood/theme.ts";
 import { LinkingOrnament } from "./facadeType.ts";
 import { LogoOrnament } from "./logo.tsx";
+import { Svg } from "../utils/svg.tsx";
 
 export function FaceContent({
   description,
@@ -43,11 +44,9 @@ export function FaceContent({
         </Text>
       )}
       {sourceCodeUrl && (
-        <LogoOrnament
-          imgPath="/icons/github-dark.svg"
-          position={[0, -0.15, 0]}
-          link={sourceCodeUrl.link}
-        />
+        <group position={[0, -0.3, 0]}>
+          <Svg svgImg="/icons/github-dark.svg" />
+        </group>
       )}
     </group>
   );
