@@ -49,7 +49,6 @@ export function Building({
             version={version}
             sourceCodeUrl={sourceCodeUrl}
           />
-          <Svg svgImg="/icons/android.svg" />
         </>
       )}
       <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>

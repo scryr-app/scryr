@@ -1,4 +1,5 @@
 import { Text } from "@react-three/drei";
+import { Box, Flex } from "@react-three/flex";
 import { currentTheme } from "../neighborhood/theme.ts";
 import { LinkingOrnament } from "./facadeType.ts";
 import { LogoOrnament } from "./logo.tsx";
@@ -21,33 +22,46 @@ export function FaceContent({
 
   return (
     <group position={[0, 0.1, 0.51]}>
-      {description && (
-        <Text
-          position={[0, 0.15, 0]}
-          fontSize={0.09}
-          color={currentTheme.fontColor}
-          anchorX="center"
-          anchorY="middle"
-        >
-          {description}
-        </Text>
-      )}
-      {version && (
-        <Text
-          position={[0, -0.15, 0]}
-          fontSize={0.09}
-          color={currentTheme.fontColor}
-          anchorX="center"
-          anchorY="middle"
-        >
-          {version}
-        </Text>
-      )}
-      {sourceCodeUrl && (
-        <group position={[0, -0.3, 0]}>
-          <Svg svgImg="/icons/github-dark.svg" />
-        </group>
-      )}
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        size={[3, 2, 1]}
+        centerAnchor
+      >
+        {description && (
+          <Box>
+            <Text
+              // position={[0, 0.15, 0]}
+              fontSize={0.09}
+              color={currentTheme.fontColor}
+              anchorX="center"
+              anchorY="middle"
+            >
+              {description}
+            </Text>
+          </Box>
+        )}
+        {version && (
+          <Box>
+            <Text
+              // position={[0, -0.15, 0]}
+              fontSize={0.09}
+              color={currentTheme.fontColor}
+              anchorX="center"
+              anchorY="middle"
+            >
+              {version}
+            </Text>
+          </Box>
+        )}
+        {sourceCodeUrl && (
+          // <group position={[0, -0.3, 0]}>
+
+          <Box centerAnchor>
+            <Svg svgImg="/icons/github-dark.svg" />
+          </Box>
+        )}
+      </Flex>
     </group>
   );
 }
