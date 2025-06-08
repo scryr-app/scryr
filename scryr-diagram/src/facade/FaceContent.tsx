@@ -1,8 +1,8 @@
 import { Text } from "@react-three/drei";
 import { Box, Flex } from "@react-three/flex";
+import { useState } from "react";
 import { currentTheme } from "../neighborhood/theme.ts";
 import { LinkingOrnament } from "./facadeType.ts";
-import { LogoOrnament } from "./logo.tsx";
 import { Svg } from "../utils/svg.tsx";
 
 export function FaceContent({
@@ -30,38 +30,56 @@ export function FaceContent({
       >
         {description && (
           <Box>
-            <Text
-              // position={[0, 0.15, 0]}
-              fontSize={0.09}
-              color={currentTheme.fontColor}
-              anchorX="center"
-              anchorY="middle"
-            >
-              {description}
-            </Text>
+            <GlowText>{description}</GlowText>
           </Box>
         )}
         {version && (
           <Box>
-            <Text
-              // position={[0, -0.15, 0]}
-              fontSize={0.09}
-              color={currentTheme.fontColor}
-              anchorX="center"
-              anchorY="middle"
-            >
-              {version}
-            </Text>
+            <GlowText>{version}</GlowText>
           </Box>
         )}
         {sourceCodeUrl && (
-          // <group position={[0, -0.3, 0]}>
-
           <Box centerAnchor>
-            <Svg svgImg="/icons/github-dark.svg" />
+            <GlowSvg svgImg="/icons/github-dark.svg" />
           </Box>
         )}
       </Flex>
     </group>
+  );
+}
+
+// Elegant glow text component
+function GlowText({ children }: { children: React.ReactNode }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Text
+      fontSize={0.09}
+      color={hovered ? "#fff" : currentTheme.fontColor}
+      anchorX="center"
+      anchorY="middle"
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+      outlineColor="#fff"
+      outlineWidth={hovered ? "0.7%" : "0%"} // Even more subtle glow
+      outlineBlur={hovered ? 0.08 : 0} // Even more subtle blur
+      outlineOpacity={hovered ? 0.25 : 0} // Lower opacity for extra subtlety
+    >
+      {children}
+    </Text>
+  );
+}
+
+// Elegant glow SVG component
+function GlowSvg(props: { svgImg: string }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <Svg
+      {...props}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+      // Use meshStandardMaterial's emissive for glow effect
+      material-emissive={hovered ? "#fff" : undefined}
+      material-emissiveIntensity={hovered ? 0.7 : 0}
+    />
   );
 }
