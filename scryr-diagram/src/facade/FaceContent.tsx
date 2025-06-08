@@ -1,6 +1,6 @@
 import { Text } from "@react-three/drei";
 import { Box, Flex } from "@react-three/flex";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { currentTheme } from "../neighborhood/theme.ts";
 import { LinkingOrnament } from "./facadeType.ts";
 import { Svg } from "../utils/svg.tsx";
@@ -51,12 +51,31 @@ export function FaceContent({
 // Elegant glow text component
 function GlowText({ children }: { children: React.ReactNode }) {
   const [hovered, setHovered] = useState(false);
+  const [scale, setScale] = useState(1);
+
+  // Animate scale on hover
+  useEffect(() => {
+    let frame: number;
+    const animate = () => {
+      setScale((prev) => {
+        const target = hovered ? 1.03 : 1;
+        const diff = target - prev;
+        if (Math.abs(diff) < 0.001) return target;
+        return prev + diff * 0.15; // Smooth interpolation
+      });
+      frame = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => cancelAnimationFrame(frame);
+  }, [hovered]);
+
   return (
     <Text
       fontSize={0.09}
       color={hovered ? "#fff" : currentTheme.fontColor}
       anchorX="center"
       anchorY="middle"
+      scale={scale}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       outlineColor="#fff"
@@ -72,9 +91,28 @@ function GlowText({ children }: { children: React.ReactNode }) {
 // Elegant glow SVG component
 function GlowSvg(props: { svgImg: string }) {
   const [hovered, setHovered] = useState(false);
+  const [scale, setScale] = useState(1);
+
+  // Animate scale on hover
+  useEffect(() => {
+    let frame: number;
+    const animate = () => {
+      setScale((prev) => {
+        const target = hovered ? 1.03 : 1;
+        const diff = target - prev;
+        if (Math.abs(diff) < 0.001) return target;
+        return prev + diff * 0.15;
+      });
+      frame = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => cancelAnimationFrame(frame);
+  }, [hovered]);
+
   return (
     <Svg
       {...props}
+      scale={scale}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       // Use meshStandardMaterial's emissive for glow effect
