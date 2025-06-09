@@ -25,6 +25,7 @@ export function Neighborhood() {
           ]}
           color={neighbor.suggestedBuildingColor}
           name={neighbor.name}
+          icon={neighbor.icon}
           description={neighbor.description}
           version={neighbor.version || ""}
           sourceCodeUrl={neighbor.sourceCodeUrl}

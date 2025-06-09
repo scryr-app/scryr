@@ -9,6 +9,7 @@ export function Building({
   position,
   color,
   name,
+  icon,
   description,
   version,
   sourceCodeUrl,
@@ -17,6 +18,7 @@ export function Building({
   position: [number, number, number];
   color: string;
   name: string;
+  icon: string;
   description: string;
   version: string;
   sourceCodeUrl?: LinkingOrnament;
@@ -40,7 +42,7 @@ export function Building({
         anchorX="center"
         anchorY="middle"
       >
-        {name}
+        {icon}{name}
       </Text>
       {showBlockFaceContent && (
         <>

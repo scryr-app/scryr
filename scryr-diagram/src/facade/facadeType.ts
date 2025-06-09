@@ -40,7 +40,7 @@ export type LinkingOrnament = {
 
 export type FacadeBuilding = {
   name: string;
-  emojiIcon?: string;
+  icon?: string;
   description: string;
 
   version?: Version;

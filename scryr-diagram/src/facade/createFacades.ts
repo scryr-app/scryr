@@ -44,7 +44,7 @@ export function createFacades(
       const color = theme.getColorByIndex(index);
       return {
         name: blueprint.name,
-        emojiIcon: blueprint.emojiIcon,
+        icon: blueprint.emojiIcon,
         description: blueprint.description,
         version: blueprint.version,
 
