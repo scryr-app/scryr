@@ -29,6 +29,7 @@ export function Neighborhood() {
           description={neighbor.description}
           version={neighbor.version || ""}
           sourceCodeUrl={neighbor.sourceCodeUrl}
+          language={neighbor.language?.name}
           fontColor={currentTheme.fontColor}
           fontFace={currentTheme.fontFace}
         />

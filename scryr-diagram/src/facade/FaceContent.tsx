@@ -9,10 +9,12 @@ export function FaceContent({
   description,
   sourceCodeUrl,
   version,
+  language,
 }: {
   description?: string;
   version?: string;
   sourceCodeUrl?: LinkingOrnament;
+  language?: string;
 }) {
   // Compose block face content with labels for each present field
   let blockFaceContent = "";
@@ -41,6 +43,11 @@ export function FaceContent({
         {sourceCodeUrl && (
           <Box centerAnchor>
             <GlowSvg svgImg="/icons/github-dark.svg" />
+          </Box>
+        )}
+        {language && (
+          <Box>
+            <GlowText>{language}</GlowText>
           </Box>
         )}
       </Flex>

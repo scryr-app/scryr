@@ -48,7 +48,7 @@ export function createFacades(
         description: blueprint.description,
         version: blueprint.version,
 
-        language: createLinkingOrnament(blueprint.language),
+        language: createLinkingOrnament(blueprint.language.toString()),
         frameworks: createLinkingOrnaments(blueprint.frameworks),
         deployment: createLinkingOrnament(blueprint.deployment.valueOf()),
         sourceCodeUrl: createLinkingOrnament(blueprint.sourceCodeUrl),
