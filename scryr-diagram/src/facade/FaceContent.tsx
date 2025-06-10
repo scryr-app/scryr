@@ -10,11 +10,13 @@ export function FaceContent({
   sourceCodeUrl,
   version,
   language,
+  frameworks,
 }: {
   description?: string;
   version?: string;
   sourceCodeUrl?: LinkingOrnament;
   language?: string;
+  frameworks?: string[];
 }) {
   // Compose block face content with labels for each present field
   let blockFaceContent = "";
@@ -48,6 +50,11 @@ export function FaceContent({
         {language && (
           <Box>
             <GlowText>{language}</GlowText>
+          </Box>
+        )}
+        {frameworks && frameworks.length > 0 && (
+          <Box>
+            <GlowText>{frameworks.join(", ")}</GlowText>
           </Box>
         )}
       </Flex>

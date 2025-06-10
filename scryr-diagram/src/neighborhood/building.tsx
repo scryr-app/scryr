@@ -15,6 +15,7 @@ export function Building({
   sourceCodeUrl,
   fontColor,
   language,
+  frameworks,
 }: {
   position: [number, number, number];
   color: string;
@@ -26,6 +27,7 @@ export function Building({
   fontColor: string;
   fontFace: string;
   language?: string;
+  frameworks?: string[];
   svgIcon?: string; // Now expects a URL to the SVG
 }) {
   const wd = 3;
@@ -53,6 +55,7 @@ export function Building({
             version={version}
             sourceCodeUrl={sourceCodeUrl}
             language={language}
+            frameworks={frameworks}
           />
         </>
       )}

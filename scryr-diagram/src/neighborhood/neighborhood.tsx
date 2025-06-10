@@ -30,6 +30,7 @@ export function Neighborhood() {
           version={neighbor.version || ""}
           sourceCodeUrl={neighbor.sourceCodeUrl}
           language={neighbor.language?.name}
+          frameworks={neighbor.frameworks?.map(f => f.name)}
           fontColor={currentTheme.fontColor}
           fontFace={currentTheme.fontFace}
         />

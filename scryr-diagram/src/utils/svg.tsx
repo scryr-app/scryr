@@ -10,7 +10,7 @@ export function Svg(
   const texture = useTexture(svgImg);
   return (
     <mesh scale={scale} {...meshProps}>
-      <planeGeometry args={[0.6, 0.6]} />
+      <planeGeometry args={[0.3, 0.3]} />
       <meshStandardMaterial map={texture} transparent />
     </mesh>
   );
