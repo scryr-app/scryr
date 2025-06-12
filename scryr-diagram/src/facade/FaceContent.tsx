@@ -15,7 +15,7 @@ export function FaceContent({
   description?: string;
   version?: string;
   sourceCodeUrl?: LinkingOrnament;
-  language?: string;
+  language?: LinkingOrnament;
   frameworks?: string[];
 }) {
   // Compose block face content with labels for each present field
@@ -47,9 +47,19 @@ export function FaceContent({
             <GlowSvg svgImg="/icons/github-dark.svg" />
           </Box>
         )}
+
         {language && (
           <Box>
-            <GlowText>{language}</GlowText>
+            <Flex flexDirection={"row"} alignContent={"center"}>
+              <Box>
+                <GlowSvg svgImg={language.icon || "/icons/bing.svg"}  />
+              </Box>
+              <group position={[0.2, 0, 0]}>
+                <Box>
+                  <GlowText>{language.name}</GlowText>
+                </Box>
+              </group>
+            </Flex>
           </Box>
         )}
         {frameworks && frameworks.length > 0 && (
@@ -72,7 +82,7 @@ function GlowText({ children }: { children: React.ReactNode }) {
     let frame: number;
     const animate = () => {
       setScale((prev) => {
-        const target = hovered ? 1.03 : 1;
+        const target = hovered ? 1.1 : 1;
         const diff = target - prev;
         if (Math.abs(diff) < 0.001) return target;
         return prev + diff * 0.15; // Smooth interpolation
@@ -93,9 +103,9 @@ function GlowText({ children }: { children: React.ReactNode }) {
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       outlineColor="#fff"
-      outlineWidth={hovered ? "0.7%" : "0%"} // Even more subtle glow
-      outlineBlur={hovered ? 0.08 : 0} // Even more subtle blur
-      outlineOpacity={hovered ? 0.25 : 0} // Lower opacity for extra subtlety
+      outlineWidth={hovered ? "0.4%" : "0%"} // Even more subtle glow
+      outlineBlur={hovered ? 0.06 : 0} // Even more subtle blur
+      outlineOpacity={hovered ? 0.20 : 0} // Lower opacity for extra subtlety
     >
       {children}
     </Text>
@@ -105,7 +115,7 @@ function GlowText({ children }: { children: React.ReactNode }) {
 // Elegant glow SVG component
 function GlowSvg(props: { svgImg: string }) {
   const [hovered, setHovered] = useState(false);
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(.1);
 
   // Animate scale on hover
   useEffect(() => {
@@ -126,7 +136,7 @@ function GlowSvg(props: { svgImg: string }) {
   return (
     <Svg
       {...props}
-      scale={scale}
+      scale={.4}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       // Use meshStandardMaterial's emissive for glow effect

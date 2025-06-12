@@ -26,7 +26,7 @@ export function Building({
   sourceCodeUrl?: LinkingOrnament;
   fontColor: string;
   fontFace: string;
-  language?: string;
+  language?: LinkingOrnament;
   frameworks?: string[];
   svgIcon?: string; // Now expects a URL to the SVG
 }) {
