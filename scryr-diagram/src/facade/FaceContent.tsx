@@ -11,12 +11,16 @@ export function FaceContent({
   version,
   language,
   frameworks,
+  links,
+  docs,
 }: {
   description?: string;
   version?: string;
   sourceCodeUrl?: LinkingOrnament;
   language?: LinkingOrnament;
   frameworks?: string[];
+  links?: LinkingOrnament[];
+  docs?: LinkingOrnament[];
 }) {
   // Compose block face content with labels for each present field
   let blockFaceContent = "";
@@ -65,6 +69,34 @@ export function FaceContent({
         {frameworks && frameworks.length > 0 && (
           <Box>
             <GlowText>{frameworks.join(", ")}</GlowText>
+          </Box>
+        )}
+        {links && links.length > 0 && (
+          <Box>
+            <Flex flexDirection={"row"} alignContent={"center"}>
+              <Box>
+                <GlowSvg svgImg="/icons/mozilla.svg" />
+              </Box>
+              <group position={[0.2, 0, 0]}>
+                <Box>
+                  <GlowText>{links.map(l => l.name).join(", ")}</GlowText>
+                </Box>
+              </group>
+            </Flex>
+          </Box>
+        )}
+        {docs && docs.length > 0 && (
+          <Box>
+            <Flex flexDirection={"row"} alignContent={"center"}>
+              <Box>
+                <GlowSvg svgImg="/icons/mozilla.svg" />
+              </Box>
+              <group position={[0.2, 0, 0]}>
+                <Box>
+                  <GlowText>{docs.map(d => d.name).join(", ")}</GlowText>
+                </Box>
+              </group>
+            </Flex>
           </Box>
         )}
       </Flex>

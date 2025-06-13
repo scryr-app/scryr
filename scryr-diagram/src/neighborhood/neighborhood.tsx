@@ -31,6 +31,8 @@ export function Neighborhood() {
           sourceCodeUrl={neighbor.sourceCodeUrl}
           language={neighbor.language}
           frameworks={neighbor.frameworks?.map(f => f.name)}
+          links={neighbor.links}
+          docs={neighbor.docs}
           fontColor={currentTheme.fontColor}
           fontFace={currentTheme.fontFace}
         />
