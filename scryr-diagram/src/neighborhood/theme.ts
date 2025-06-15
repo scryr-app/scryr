@@ -132,7 +132,7 @@ export const AutumnOfficeTheme: ThemeAttributes = {
   backgroundColor: "#F5E9DA", // Light tan, cozy
   surfaceColor: "#FFE0B2", // Warm, soft orange
   fontFace: "Inter, system-ui, sans-serif",
-  fontColor: "#FFE0B2", // Deep brown for contrast
+  fontColor: "#7E886D", // Deep brown for contrast
 };
 
 export const SteelBlueTheme: ThemeAttributes = {

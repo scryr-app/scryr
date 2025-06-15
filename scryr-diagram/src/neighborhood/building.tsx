@@ -14,6 +14,7 @@ export function Building({
   version,
   sourceCodeUrl,
   fontColor,
+  fontFace,
   language,
   frameworks,
   links,
