@@ -5,6 +5,7 @@ import { currentTheme } from "./theme.ts";
 import { createFacades } from "../facade/createFacades.ts";
 import { Ground } from "./Ground.tsx";
 import { createLinkingOrnament } from "../facade/facadeType.ts";
+import { BaseBuilding } from "../facade/BaseBuilding.tsx";
 
 export function Neighborhood() {
   const blprnts: Blueprint[] = menetherenBlueprints;
@@ -16,7 +17,7 @@ export function Neighborhood() {
       <axesHelper args={[15]} />
       <gridHelper args={[50, 50]} />
       <Ground />
-      <Building
+      {/* <Building
         key={0}
         position={[0, 0, 0]}
         color={currentTheme.fontColor}
@@ -32,8 +33,15 @@ export function Neighborhood() {
         docs={[{name: "llama docs", link: "https://www.llama.com/docs/get-started/"}, {name: "aws emr docs", link: "https://docs.aws.amazon.com/emr/"}]}
         fontFace={currentTheme.fontFace}
         fontColor={currentTheme.fontColor}
+      /> */}
+      <BaseBuilding
+        topFace={{ icon: "🍃", name: "Img Recog Pipeline" }}
+        sideFace={{ isContainer: false }}
+        frontFaceTopSection={{ description: "Data Job runners for the AI image recognition pipeline.", version: "v2.0.1" }}
+        frontFaceMiddleSection={{ language: { name: "Python", link: "https://www.python.org", icon: "/icons/python.svg" }, frameworks: ["Django", "Pydantic"] }}
+        frontFaceBottomSection={{ links: [{ name: "LLM", link: "https://www.llama.com/" }], docs: [{ name: "llama docs", link: "https://www.llama.com/docs/get-started/" }, { name: "aws emr docs", link: "https://docs.aws.amazon.com/emr/" }] }}
+        props={{ position: [0, 0, 0], color: currentTheme.fontColor, fontColor: currentTheme.fontColor, fontFace: currentTheme.fontFace }}
       />
-
       {/* {Neighbors.map((neighbor, index) => (
         <Building
           key={index}
