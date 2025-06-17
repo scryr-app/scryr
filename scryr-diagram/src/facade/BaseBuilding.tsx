@@ -6,6 +6,7 @@ import { Svg } from "../utils/svg.tsx";
 import { Box, Flex } from "@react-three/flex";
 import { Object3DProps } from "@react-three/fiber";
 import { currentTheme } from "../neighborhood/theme.ts";
+import { useRef } from 'react'
 
 export type TopFace = {
     icon: string;
@@ -47,11 +48,10 @@ export function BaseBuilding({
     frontFaceBottomSection: FrontFaceBottomSection;
     props: Object3DProps;
 }) {
-
-  const wd = 3;
-  const ht = 2;
+  const ht = 3;
+  const wd = 2;
   const dp = 1;
-
+  const meshRef = useRef(null)
 
   return (
     <group {...props}>
@@ -65,7 +65,15 @@ export function BaseBuilding({
       >
         {topFace.icon}{topFace.name}
       </Text>
-      <RoundedBox args={[ht, wd, dp]} radius={0.08} smoothness={4}>
+      <RoundedBox args={[ wd, ht, dp]} radius={0.08} smoothness={4}>
+        <meshStandardMaterial color={currentTheme.fontColor} />
+      </RoundedBox>
+      <RoundedBox 
+        args={[wd * 0.9, ht * 0.2, .05]} 
+        radius={0.05} 
+        smoothness={4}
+        position={[0, 0, 0.51]}
+      >
         <meshStandardMaterial color={currentTheme.fontColor} />
       </RoundedBox>
     </group>
