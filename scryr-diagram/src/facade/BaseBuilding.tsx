@@ -33,6 +33,19 @@ export type FrontFaceBottomSection = {
 }
 
 
+function WindowOrnament({position, wd, ht, ...props}: {position: [number, number, number], wd: number, ht: number, props?: Object3DProps}) {
+  return (
+    <RoundedBox 
+    args={[wd * 0.9, ht * 0.2, .05]} 
+    radius={0.05} 
+    smoothness={4}
+    position={position}
+  >
+    <meshStandardMaterial color={currentTheme.fontColor} />
+  </RoundedBox>
+  )
+}
+
 export function BaseBuilding({
     topFace,
     sideFace,
@@ -52,7 +65,7 @@ export function BaseBuilding({
   const wd = 2;
   const dp = 1;
   const meshRef = useRef(null)
-
+  const windowCount = 3; // add 2 or 3
   return (
     <group {...props}>
       <Text
@@ -65,17 +78,12 @@ export function BaseBuilding({
       >
         {topFace.icon}{topFace.name}
       </Text>
-      <RoundedBox args={[ wd, ht, dp]} radius={0.08} smoothness={4}>
+      <RoundedBox position={[0, ht/2, 0]} args={[ wd, ht, dp]} radius={0.08} smoothness={4}>
         <meshStandardMaterial color={currentTheme.fontColor} />
       </RoundedBox>
-      <RoundedBox 
-        args={[wd * 0.9, ht * 0.2, .05]} 
-        radius={0.05} 
-        smoothness={4}
-        position={[0, 0, 0.51]}
-      >
-        <meshStandardMaterial color={currentTheme.fontColor} />
-      </RoundedBox>
+      <WindowOrnament position={[0, ht/4 + 1.5, 0.51]} wd={wd} ht={ht} />
+      <WindowOrnament position={[0, ht/4 + .75, 0.51]} wd={wd} ht={ht} />
+      <WindowOrnament position={[0, ht/4, 0.51]} wd={wd} ht={ht} />
     </group>
   );
 }
